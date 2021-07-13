@@ -1,0 +1,30 @@
+{
+	"create method": {
+		"prefix": ["cm"],
+		"body": [
+			"/**",
+			" *",
+			" */",
+			"const $0 = (($1): $2 => {",
+				"\t$3",
+			"});"
+		],
+		"description": "Creates a new method."
+	},
+	"jsdoc": {
+		"prefix": ["/**"],
+		"body": [
+			"/**",
+			" *",
+			" */"
+		],
+		"description": "Creates a (pretty) basic jsdoc."
+	},
+	"console.log": {
+		"prefix": ["log"],
+		"body": [
+			"console.log($0);"
+		],
+		"description": "A console.log statement"
+	}
+}
