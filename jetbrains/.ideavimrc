@@ -1,0 +1,2 @@
+"" Source your .vimrc
+source ~/.config/nvim/utils/.ideavimrc
