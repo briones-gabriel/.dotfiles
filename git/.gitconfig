@@ -2,12 +2,12 @@
 	email = dossantosgabrielb@gmail.com
 	name = briones-gabriel
 [alias]
+    a  = add
+    s  = status
+    b  = branch
+    c  = commit
     co = checkout
-    br = branch
-    cm = commit
-    st = status
     pl = pull
     ps = push
-    rb = rebase
 [core]
 	editor = nvim
