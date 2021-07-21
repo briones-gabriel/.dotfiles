@@ -1,3 +1,9 @@
+local lspconfig, _ = pcall(require, "lspconfig")
+
+if not lspconfig then
+    return
+end
+
 local sumneko_root_path = DATA_PATH .. "/lspinstall/lua"
 local sumneko_binary = sumneko_root_path .. "/sumneko-lua-language-server"
 

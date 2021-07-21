@@ -1,3 +1,8 @@
+local present, _ = pcall(require, "indent_blankline")
+if not present then
+  return
+end
+
 --- SETTINGS ---
 g.indent_blankline_show_current_context    = true
 g.indent_blankline_use_treesitter          = true

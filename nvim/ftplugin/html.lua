@@ -1,3 +1,9 @@
+local lspconfig, _ = pcall(require, "lspconfig")
+
+if not lspconfig then
+    return
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 

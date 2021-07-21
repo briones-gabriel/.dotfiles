@@ -1,3 +1,8 @@
+local present, _ = pcall(require, "gitsigns")
+if not present then
+  return
+end
+
 require("gitsigns").setup {
   signs = {
     add                  = { hl = "GitAdd"   , text = "▕", numhl = "GitSignsAddNr" },

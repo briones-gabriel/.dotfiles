@@ -20,19 +20,20 @@ opt.errorbells      = false                                                    -
 opt.backup          = false                                                    --- Creates a backup file
 opt.writebackup     = false                                                    --- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.hlsearch        = false
-opt.timeoutlen      = 300                                                      --- Faster completion
-opt.updatetime      = 100                                                      --- Faster completion
+opt.timeoutlen      = 400                                                      --- Faster completion
+opt.updatetime      = 250
 opt.scrolloff       = 4                                                        --- Always keep space when scrolling to bottom/top edge
 opt.sidescrolloff   = 4                                                        --- Lines to scroll horizontally
 opt.cmdheight       = 1    				                                             --- Give more space for displaying messages
 opt.conceallevel    = 0                                                        --- so that `` is visible in markdown files
-opt.undodir         = PATH .. "/utils/.undo"                                   --- Dir for undos
+opt.undodir         = PATH .. "/.undo"                                   --- Dir for undos
 opt.completeopt     = {"menuone", "noselect"}                                  --- Recommended by nvim-compe
 opt.wildignore      = {"**/node_modules/**", "**/.idea/**", "**/.git/**"}      --- Don't search inside Node.js modules (works for gutentag)
 opt.clipboard       = {"unnamed", "unnamedplus"}                               --- Copy-paste between vim and everything else
 opt.backspace       = {"indent", "eol", "start"}                               --- Making sure backspace works
 opt.fillchars       = {eob = " "}                                              --- Hides unnecessary characters
---opt.foldmethod      = "indent"
+opt.shortmess:append("sIc")
+opt.foldmethod      = "indent"
 opt.fileencoding    = "utf-8"                                                  --- The enconding written to a file
 opt.encoding        = "utf-8"                                                  --- The encoding displayed
 opt.colorcolumn     = "120"                                                    --- Sets the color column distance
@@ -53,7 +54,18 @@ vim.b.mapleader = " "
 --- FUNCTIONS ---
 cmd("colorscheme base16-gruvbox-dark-soft")
 cmd("filetype plugin indent on")
-cmd("set shortmess+=c")                                                        --- " Don't pass messages to |ins-completion-menu|
 cmd("set formatoptions-=c")                                                    --- " Stop newline continuation of comments
 cmd("set formatoptions-=r")
 cmd("set formatoptions-=o")
+
+--- DISABLE BUILT-IN PLUGINS ---
+g.loaded_gzip         = 0
+g.loaded_tar          = 0
+g.loaded_tarPlugin    = 0
+g.loaded_zipPlugin    = 0
+g.loaded_2html_plugin = 0
+g.loaded_netrw        = 0
+g.loaded_netrwPlugin  = 0
+g.loaded_matchit      = 0
+g.loaded_matchparen   = 0
+g.loaded_spec         = 0

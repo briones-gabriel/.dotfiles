@@ -9,7 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-require("packer").startup(function (use)
+local packer = require "packer"
+
+return packer.startup(function (use)
   --- PACKER ---
   use {
     "wbthomason/packer.nvim"
@@ -91,8 +93,8 @@ require("packer").startup(function (use)
 
   --- LSP ---
   use {
-    "hrsh7th/vim-vsnip",
-    config = function () require "plugins.nv-vsnip" end,
+    "L3MON4D3/LuaSnip",
+    config = function () require "plugins.nv-luasnip" end,
   }
   use {
     "hrsh7th/nvim-compe",

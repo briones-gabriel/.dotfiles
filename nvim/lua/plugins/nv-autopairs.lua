@@ -1,3 +1,10 @@
+local autopairs, _ = pcall(require, "nvim-autopairs")
+local autopairs_compe, _ = pcall(require, "nvim-autopairs.completion.compe")
+
+if not (autopairs or autopairs_compe) then
+    return
+end
+
 require("nvim-autopairs").setup {
   ts_config       = {lua = {"string"}, javascript = {"template_string"}, java = false},
   check_ts        = true,

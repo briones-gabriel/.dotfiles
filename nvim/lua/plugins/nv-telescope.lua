@@ -1,3 +1,9 @@
+local present, _ = pcall(require, "telescope")
+local present_2, _ = pcall(require, "telescope.actions")
+if not (present or present_2) then
+  return
+end
+
 local actions = require("telescope.actions")
 
 require("telescope").setup {
