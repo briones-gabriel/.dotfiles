@@ -34,6 +34,7 @@ opt.backspace       = {"indent", "eol", "start"}                               -
 opt.fillchars       = {eob = " "}                                              --- Hides unnecessary characters
 opt.shortmess:append("sIc")
 opt.foldmethod      = "indent"
+opt.shell           = "/bin/bash"
 opt.fileencoding    = "utf-8"                                                  --- The enconding written to a file
 opt.encoding        = "utf-8"                                                  --- The encoding displayed
 opt.colorcolumn     = "120"                                                    --- Sets the color column distance
@@ -59,13 +60,27 @@ cmd("set formatoptions-=r")
 cmd("set formatoptions-=o")
 
 --- DISABLE BUILT-IN PLUGINS ---
-g.loaded_gzip         = 0
-g.loaded_tar          = 0
-g.loaded_tarPlugin    = 0
-g.loaded_zipPlugin    = 0
-g.loaded_2html_plugin = 0
-g.loaded_netrw        = 0
-g.loaded_netrwPlugin  = 0
-g.loaded_matchit      = 0
-g.loaded_matchparen   = 0
-g.loaded_spec         = 0
+local disabled_built_ins = {
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "logipat",
+  "rrhelper",
+  "spellfile_plugin",
+  "matchit"
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+  vim.g["loaded_" .. plugin] = 1
+end

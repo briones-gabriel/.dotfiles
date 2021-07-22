@@ -7,7 +7,8 @@ async = vim.loop.new_async(
   vim.schedule_wrap(
     function ()
       require "maps"
-      require "plugins"
+      require "pluginsList"
+      require "packerInit"
 
       async:close()
     end

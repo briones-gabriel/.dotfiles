@@ -1,10 +1,8 @@
 --- ESSENTIAL ---
 map("n",    "<Leader>w",    ":w<CR>")
 map("n",    "<Leader>q",    ":quitall<CR>")
-map("n",    "<Leader>st2",  ":lua set_tabs(2)<CR>")
-map("n",    "<Leader>st4",  ":lua set_tabs(4)<CR>")
 map("n",    "<Leader>/",    ":CommentToggle<CR>")
-cmap("v",   "<Leader>/",    ":CommentToggle<CR>", optns)
+map("v",    "<Leader>/",    ":CommentToggle<CR>")
 
 --- BUFFER CONTROL ---
 map("n",    "<Leader>=",    "<C-w>=")

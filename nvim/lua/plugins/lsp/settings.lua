@@ -53,6 +53,10 @@ return function ()
   }
 
   --- SIGN DEFINITION ---
+  local sdef = function (...)
+    fn.sign_define(...)
+  end
+
   sdef(
     "LspDiagnosticsSignError",
     {

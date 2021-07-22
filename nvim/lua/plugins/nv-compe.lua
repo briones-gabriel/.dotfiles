@@ -66,10 +66,10 @@ _G.s_tab_complete = function()
 end
 
 --- MAPS ---
-cmap("i",    "<CR>",        "compe#confirm('<CR>')",     {expr = true})
-cmap("i",    "<C-space>",   "compe#complete()",          {expr = true})
-cmap("i",    "<C-e>",       "compe#close(\'<c-e>\')",    {expr = true})
-cmap("i",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
-cmap("s",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
-cmap("i",    "<S-Tab>",     "v:lua.s_tab_complete()",    {expr = true})
-cmap("s",    "<S-Tab>",     "v:lua.s_tab_complete()",    {expr = true})
+map("i",    "<CR>",        "compe#confirm('<CR>')",     {expr = true})
+map("i",    "<C-space>",   "compe#complete()",          {expr = true})
+map("i",    "<C-e>",       "compe#close(\'<c-e>\')",    {expr = true})
+map("i",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
+map("s",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
+map("i",    "<S-Tab>",     "v:lua.s_tab_complete()",    {expr = true})
+map("s",    "<S-Tab>",     "v:lua.s_tab_complete()",    {expr = true})
