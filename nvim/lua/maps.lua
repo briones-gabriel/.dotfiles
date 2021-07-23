@@ -17,9 +17,9 @@ map("n",    "<S-k>",        "<C-W><C-K>")
 map("n",    "<S-l>",        "<C-W><C-L>")
 
 -- BUFFER LINE NAVIGATION ---
-map("n",    "<C-l>",        ":tabnext<CR>")
-map("n",    "<C-h>",        ":tabprev<CR>")
-map("n",    "<C-w>",        ":tabclose<CR>")
+map("n",    "<C-l>",        ":bn<CR>")
+map("n",    "<C-h>",        ":bp<CR>")
+map("n",    "<C-w>",        ":bd<CR>")
 
 -- TELESCOPE ---
 map("n",    ";f",   ":lua require('telescope.builtin').find_files({ previewer = false })<CR>")

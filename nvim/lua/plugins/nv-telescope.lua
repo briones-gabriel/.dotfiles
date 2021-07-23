@@ -22,14 +22,13 @@ require("telescope").setup {
     entry_prefix                = "  ",
     initial_mode                = "insert",
     selection_strategy          = "reset",
-    sorting_strategy            = "descending",
-    layout_strategy             = "vertical",
+    sorting_strategy            = "ascending",
+    layout_strategy             = "center",
     mappings = {
       i = {
         ["<esc>"]               = actions.close,
         ["<C-j>"]               = actions.move_selection_next,
         ["<C-k>"]               = actions.move_selection_previous,
-        ["<CR>"]                = actions.file_tab,
       },
       n = {
         ["q"]                   = actions.close,
@@ -38,6 +37,11 @@ require("telescope").setup {
     layout_config = {
       horizontal = { mirror = false },
       vertical = {
+        mirror = false,
+        height = 0.5,
+        width  = 0.5,
+      },
+      center = {
         mirror = false,
         height = 0.5,
         width  = 0.5,
@@ -59,10 +63,12 @@ require("telescope").setup {
     buffer_previewer_maker      = require"telescope.previewers".buffer_previewer_maker
   },
   extensions = {
-    fzy_native = {
-      overide_generic_sorter    = false,
-      override_file_sorter      = true
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = false, -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
     }
-  }
+  },
 }
-require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("fzf")

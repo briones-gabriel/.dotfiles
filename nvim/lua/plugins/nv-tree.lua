@@ -38,7 +38,7 @@ g.nvim_tree_icons = {
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 g.nvim_tree_bindings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("tabnew") },
+  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
   { key = "v",                            cb = tree_cb("vsplit") },
   { key = "x",                            cb = tree_cb("split") },
   { key = "<C-b>",                        cb = tree_cb("edit") },

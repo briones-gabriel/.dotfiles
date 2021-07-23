@@ -23,7 +23,6 @@ return packer.startup(
     --- GIT ---
     use {
       "lewis6991/gitsigns.nvim",
-      after = "plenary.nvim",
       config = function ()
         require "plugins.nv-gitsigns"
       end,
@@ -44,10 +43,10 @@ return packer.startup(
 
     --- CORE PLUGINS ---
     use {
-      "hoob3rt/lualine.nvim",
+      "ojroques/nvim-hardline",
       config = function ()
-        require "plugins.nv-lualine"
-      end,
+        require "plugins.nv-hardline"
+      end
     }
 
     use {
@@ -67,24 +66,12 @@ return packer.startup(
     }
 
     use {
-      "alvarosevilla95/luatab.nvim",
-      config = function ()
-        require "plugins.nv-luatab"
-      end,
-    }
-
-    use {
       "kyazdani42/nvim-web-devicons"
-    }
-
-    use {
-      "tjdevries/astronauta.nvim"
     }
 
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
       config = function ()
         require "plugins.nv-treesitter"
       end,
@@ -99,31 +86,29 @@ return packer.startup(
     }
 
     use {
-      "windwp/nvim-ts-autotag"
+      "windwp/nvim-ts-autotag",
+      after = "nvim-treesitter",
     }
 
     --- TELESCOPE ---
     use {
       "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
       config = function ()
         require "plugins.nv-telescope"
       end,
       requires = {
         {
-          "nvim-lua/popup.nvim",
-          after = "plenary.nvim",
-        },
-        {
           "nvim-lua/plenary.nvim",
-          event = "BufRead",
         },
         {
-          "nvim-telescope/telescope-fzf-native.nvim",
-          run = "make",
-          cmd = "Telescope",
+          "nvim-lua/popup.nvim",
         },
       }
+    }
+
+    use {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      run = "make",
     }
 
     --- COMPLETION ---
@@ -151,16 +136,14 @@ return packer.startup(
     }
 
     use {
-      "neovim/nvim-lspconfig",
-      after = "nvim-lspinstall",
-      config = function ()
-        require "plugins.lsp"
-      end,
+      "kabouzeid/nvim-lspinstall",
     }
 
     use {
-      "kabouzeid/nvim-lspinstall",
-      event = "BufRead",
+      "neovim/nvim-lspconfig",
+      config = function ()
+        require "plugins.nv-lspconfig"
+      end,
     }
 
     use {
@@ -169,7 +152,7 @@ return packer.startup(
         require "plugins.nv-lsputils"
       end,
       requires = {
-        "RishabhRD/popfix"
+        "RishabhRD/popfix",
       },
     }
   end

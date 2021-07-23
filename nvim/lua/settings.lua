@@ -1,3 +1,10 @@
+-- Turn these off at startup, will be enabled later just before loading the theme
+vim.cmd([[
+    syntax off
+    filetype off
+    filetype plugin indent off
+]])
+
 --- GENERAL ---
 opt.number          = true                                                     --- Shows current line number
 opt.relativenumber  = true                                                     --- Enables relative number
@@ -53,8 +60,6 @@ vim.g.mapleader = " "
 vim.b.mapleader = " "
 
 --- FUNCTIONS ---
-cmd("colorscheme base16-gruvbox-dark-soft")
-cmd("filetype plugin indent on")
 cmd("set formatoptions-=c")                                                    --- " Stop newline continuation of comments
 cmd("set formatoptions-=r")
 cmd("set formatoptions-=o")
