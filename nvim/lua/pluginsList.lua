@@ -23,13 +23,15 @@ return packer.startup(
     --- GIT ---
     use {
       "lewis6991/gitsigns.nvim",
+      event = "BufRead",
       config = function ()
         require "plugins.nv-gitsigns"
       end,
     }
 
     use {
-      "tpope/vim-fugitive"
+      "tpope/vim-fugitive",
+      cmd = "G",
     }
 
     --- COMMENTS ---
@@ -135,12 +137,15 @@ return packer.startup(
       }
     }
 
+    --- LSP ---
     use {
       "kabouzeid/nvim-lspinstall",
+      event = "BufEnter",
     }
 
     use {
       "neovim/nvim-lspconfig",
+      after = "nvim-lspinstall",
       config = function ()
         require "plugins.nv-lspconfig"
       end,

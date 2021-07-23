@@ -40,8 +40,9 @@ opt.clipboard       = {"unnamed", "unnamedplus"}                               -
 opt.backspace       = {"indent", "eol", "start"}                               --- Making sure backspace works
 opt.fillchars       = {eob = " "}                                              --- Hides unnecessary characters
 opt.shortmess:append("sIc")
-opt.foldmethod      = "indent"
 opt.shell           = "/bin/bash"
+opt.guicursor       = "i:block"
+opt.foldmethod      = "indent"
 opt.fileencoding    = "utf-8"                                                  --- The enconding written to a file
 opt.encoding        = "utf-8"                                                  --- The encoding displayed
 opt.colorcolumn     = "120"                                                    --- Sets the color column distance
