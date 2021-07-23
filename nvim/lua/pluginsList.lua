@@ -17,7 +17,7 @@ return packer.startup(
 
     --- COLORSCHEMES ---
     use {
-      "RRethy/nvim-base16"
+      "RRethy/nvim-base16",
     }
 
     --- GIT ---

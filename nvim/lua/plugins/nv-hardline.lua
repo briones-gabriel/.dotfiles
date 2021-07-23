@@ -9,7 +9,7 @@ require('hardline').setup {
   sections = {         -- define sections
     {class = 'mode', item = require('hardline.parts.mode').get_item},
     '%<',
-    {class = 'med', item = require('hardline.parts.filename').get_item},
+    {class = 'med', item = require('hardline.parts.filename').get_item, hide = 240},
     {class = 'med', item ='%='},
     {class = 'error', item = require('hardline.parts.lsp').get_error},
     {class = 'warning', item = require('hardline.parts.lsp').get_warning},
