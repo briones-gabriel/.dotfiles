@@ -1,0 +1,3 @@
+CMD-LOG-LINE-BEGIN 11644 | 2021-06-23 12:29:36,758 | INFO | az_command_data_logger | command args: acr
+CMD-LOG-LINE-BEGIN 11644 | 2021-06-23 12:29:37,832 | ERROR | az_command_data_logger | the following arguments are required: _subcommand
+CMD-LOG-LINE-BEGIN 11644 | 2021-06-23 12:29:37,869 | INFO | az_command_data_logger | exit code: 2

@@ -1,0 +1,2 @@
+CMD-LOG-LINE-BEGIN 11734 | 2021-06-23 12:29:50,859 | INFO | az_command_data_logger | command args: acr login --name {}
+CMD-LOG-LINE-BEGIN 11734 | 2021-06-23 12:29:59,853 | INFO | az_command_data_logger | exit code: 0

@@ -24,13 +24,15 @@ return function (lsp, on_attach)
             useScaffoldSnippets = true,
           },
           format = {
+            useTabs = true,
+            tabSize = 2,
             defaultFormatter = {
               js = "none",
               ts = "none"
             },
             defaultFormatterOptions = {},
-            scriptInitialIndent = false,
-            styleInitialIndent = false
+            scriptInitialIndent = true,
+            styleInitialIndent = true
           },
           useWorkspaceDependencies = false,
           validation = {
