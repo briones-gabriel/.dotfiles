@@ -6,8 +6,8 @@ if not (present_lspconfig or present_lspinstall) then
 end
 
 -- on_attach function for lsp
-local on_attach = require "lua.plugins.lsp.lsp_on_attach"
-local setup_signs = require "lua.plugins.lsp.lsp_signs"
+local on_attach = require "plugins.lsp.on_attach"
+local setup_signs = require "plugins.lsp.set_signs"
 
 -- capabilities to enable snippets support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -17,41 +17,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local function setup_servers()
   local lspinstall = require("lspinstall")
   local lspconfig = require("lspconfig")
-  local root_dir = vim.loop.cwd
 
   lspinstall.setup()
   local servers = lspinstall.installed_servers()
 
   for _, lang in pairs(servers) do
-    if lang ~= "lua" then
-      lspconfig[lang].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        root_dir = root_dir
-      }
-    elseif lang == "lua" then
-      lspconfig[lang].setup {
-        root_dir = root_dir,
-        on_attach = on_attach,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = {"vim"}
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-              },
-              maxPreload = 100000,
-              preloadFileSize = 10000
-            },
-            telemetry = {
-              enable = false
-            }
-          }
-        }
-      }
+    if pcall(require, "plugins.lsp.servers." .. lang) then
+      local setup_server = require("plugins.lsp.servers." .. lang)
+      setup_server(lspconfig, on_attach)
     end
   end
 end

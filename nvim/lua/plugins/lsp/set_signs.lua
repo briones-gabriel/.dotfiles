@@ -8,7 +8,7 @@ return function ()
         prefix = "",
         spacing = 0,
       },
-      signs = true,
+      signs = false,
       underline = true,
     }
   )
