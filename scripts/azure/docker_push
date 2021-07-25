@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# Check if there are unstaged changes in the project
+cd ~/Projects/eutopia-green
+if [[ $(git diff --exit-code) ]]; then
+  # Show unstaged changes if some
+  git status
+  exit 1
+fi
+
+# Check if we want a dev or stable push
+push_type=$1
+
+# Get the given branch
+branch=$2
+
+# Get the last dev version of the app & set the new
+cd ~/scripts
+if [[ $push_type == "dev"]]; then
+  curr_version="vT$(($(cat last_dev_version) + 1))"
+else
+  curr_version="vS$(($(cat last_stable_version) + 1))"
+fi
+
+# Use the current branch if a branch is not specified
+if [[ -z "$branch" ]]; then
+  branch="$(git branch --show-current)"
+  printf '%s\n' "No branch specified, using [$branch] branch"
+  # Exit if no branch in local files
+  if [[ -z "$branch" ]]; then exit 1 fi
+fi
+
+# Data confirmation
+echo "-$ Type: $push_type";
+echo "-$ Branch: $branch";
+echo "-$ New test version: $curr_version";
+read -p "Confirm: " confirm
+
+# Get root permission
+sudo "$0" "$@"
+
+# Move to project directory
+cd ~/Projects/eutopia-green
+
+# Checkout to chosen branch
+git checkout $branch > /dev/null 2>&1 && echo
+
+# Make sure the local project is up to date with the remote repo
+git pull && echo
+
+# Build the front-end
+if [[ $push_type == "dev"]]; then
+  yarn build
+else
+  yarn build-min
+fi echo
+
+# Build the bakc-end
+mvn package
+
+# Start docker & build the container
+sudo systemctl start docker
+sudo docker build -t eutopia-app:$curr_version .
+
+# Tag the container
+sudo docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$curr_version
+
+# Push the container to Azure
+sudo docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
+
+# Write the new 'last version'
+cd ~/scripts
+if [[ $push_type == "dev"]]; then
+  echo $curr_version > last_dev_version
+else
+  echo $curr_version > last_stable_version
+fi
+
+# Rebuild the back-end for future use
+cd ~/Projects/eutopia-green
+mvn compile
+
+# Process finished successfully
+echo -e "\nDev-image pushed successfully to Azure"

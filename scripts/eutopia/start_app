@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Move to project directory
+cd ~/Projects/eutopia-green && clear
+
+# Main loop
+USER_COMMAND=""
+while [ "$USER_COMMAND" != "STOP" ]
+do
+  # Clear the screen
+  clear
+
+  # Ask for user input
+  echo " -------------- "
+  echo "| [R]un app    |"
+  echo "| [S]top app   |"
+  echo " -------------- "
+  echo "| [B]uild      |"
+  echo "| [M]in Build  |"
+  echo "| [P]rod Build |"
+  echo " -------------- "
+
+  read -p "$ " USER_INPUT
+
+  # Evaluate the input
+  case $USER_INPUT in
+    R | r)
+      mvn spring-boot:run
+      ;;
+    B | b)
+      yarn build
+      ;;
+    M | m)
+      yarn build-min
+      ;;
+    P | p)
+      yarn build-prod
+      ;;
+    S | s)
+      USER_COMMAND="STOP"
+      ;;
+    *)
+  esac
+done

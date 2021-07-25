@@ -3,9 +3,9 @@
 	name = briones-gabriel
 [alias]
     a  = add
-    s  = status
     b  = branch
     c  = commit
+    st  = status
     co = checkout
     pl = pull
     ps = push
