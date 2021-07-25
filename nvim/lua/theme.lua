@@ -1,7 +1,7 @@
 local present, _ = pcall(require, "base16-colorscheme")
 
 if present then
-  cmd("colorscheme base16-gruvbox-dark-soft")
+  cmd("colorscheme base16-nord")
 end
 
 vim.cmd([[
