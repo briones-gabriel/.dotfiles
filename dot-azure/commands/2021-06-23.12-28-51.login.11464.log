@@ -1,2 +1,0 @@
-CMD-LOG-LINE-BEGIN 11464 | 2021-06-23 12:28:51,593 | INFO | az_command_data_logger | command args: login
-CMD-LOG-LINE-BEGIN 11464 | 2021-06-23 12:29:02,785 | INFO | az_command_data_logger | exit code: 0
