@@ -1,0 +1,54 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins ---------------------------------
+set NERDTree
+set argtextobj
+set textobj-entire
+set surround
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set number
+set relativenumber
+set clipboard=unnamedplus
+set clipboard+=ideaput
+set showmode
+set ruler
+set so=4
+set incsearch
+set nu
+set showmatch
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+set ideamarks
+
+""" Mappings --------------------------------
+nmap <Leader>w   :w<CR>
+nmap <Leader>q   :q<CR>
+:map <leader>t   :NERDTreeFind<CR>
+:map <leader>fm  <Action>(ReformatCode)
+:map <leader>e   <Action>(ShowErrorDescription)
+:map <leader>k   <Action>(ToggleFullScreen)
+:map <leader>/   <Action>(CommentByLineComment)
+
+:map <S-k>       <Action>(MoveLineUp)
+:map <S-j>       <Action>(MoveLineDown)
+:map <C-l>       <Action>(NextTab)
+:map <C-h>       <Action>(PreviousTab)
+
+:map ;d          <Action>(Debug)
+:map ;s          <Action>(Stop)
+:map ;r          <Action>(Run)
+:map ;t          <Action>(ActivateTerminalToolWindow)
+:map ;r          <Action>(RenameElement)
+:map ;f          <Action>(GotoFile)
+:map ;d          <Action>(QuickJavaDoc)
+
+:map gu          <Action>(FindUsages)
+:map gc          <Action>(GotoClass)
