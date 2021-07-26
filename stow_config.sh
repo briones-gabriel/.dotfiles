@@ -15,12 +15,6 @@ stow --dotfiles -adopt jetbrains
 # Stow git
 stow --dotfiles git
 
-# Stow Azure-CLI
-stow --dotfiles dot-azure
-
-# Stow Docker
-stow --dotfiles dot-docker
-
 # Stow Starship
 stow starship -t ~/.config
 

@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # Check if there are unstaged changes in the project
-cd ~/Projects/eutopia-green/
+cd $HOME/Projects/eutopia-green
 if [ $(git diff --exit-code) ]
 then
   # Show unstaged changes if some
@@ -17,7 +17,7 @@ push_type=$1
 branch=$2
 
 # Get the last dev version of the app & set the new
-cd ~/.dotfiles/scripts/azure/
+cd $HOME/.dotfiles/scripts/azure
 if [[ $push_type == "dev" ]]
 then
   curr_version="vT$(($(cat last_dev_version) + 1))"
@@ -30,7 +30,7 @@ else
 fi
 
 # Use the current branch if a branch is not specified
-cd ~/Projects/eutopia-green/
+cd $HOME/Projects/eutopia-green
 if [ -z "$branch" ]
 then
   branch="$(git branch --show-current)"
@@ -48,11 +48,11 @@ echo "-$ Branch: $branch";
 echo "-$ New test version: $curr_version";
 read -p "Confirm: " confirm
 
-# Get root permission
-sudo "$0" "$@"
+# Start docker
+sudo systemctl start docker
 
 # Move to project directory
-cd ~/Projects/eutopia-green
+cd $HOME/Projects/eutopia-green
 
 # Checkout to chosen branch
 git checkout $branch > /dev/null 2>&1 && echo
@@ -61,7 +61,7 @@ git checkout $branch > /dev/null 2>&1 && echo
 git pull && echo
 
 # Build the front-end
-if [ $push_type == "dev"]
+if [ $push_type == "dev" ]
 then
   yarn build
 else
@@ -72,19 +72,18 @@ echo
 # Build the bakc-end
 mvn package
 
-# Start docker & build the container
-sudo systemctl start docker
-sudo docker build -t eutopia-app:$curr_version .
+# Build the container
+docker build -t eutopia-app:$curr_version .
 
 # Tag the container
-sudo docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$curr_version
+docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$curr_version
 
 # Push the container to Azure
-sudo docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
+docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
 
 # Write the new 'last version'
-cd ~/.dotfiles/scripts/azure/
-if [ $push_type == "dev"]
+cd /home/gabriel/.dotfiles/scripts/azure
+if [ $push_type == "dev" ]
 then
   echo $curr_version > last_dev_version
 else
@@ -92,7 +91,7 @@ else
 fi
 
 # Rebuild the back-end for future use
-cd ~/Projects/eutopia-green
+cd /home/gabriel/Projects/eutopia-green
 mvn compile
 
 # Process finished successfully
