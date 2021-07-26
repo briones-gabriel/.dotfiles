@@ -95,4 +95,9 @@ cd /home/gabriel/Projects/eutopia-green
 mvn compile
 
 # Process finished successfully
-echo -e "\nDev-image pushed successfully to Azure"
+if [ $push_type == "dev" ]
+then
+  echo -e "\nDev-image pushed successfully to Azure"
+else
+  echo -e "\nStable-image pushed successfully to Azure"
+fi

@@ -1,15 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 # Move to project directory
-cd ~/Projects/eutopia-green && clear
+cd $HOME/Projects/eutopia-green
 
 # Main loop
 USER_COMMAND=""
 while [ "$USER_COMMAND" != "STOP" ]
 do
-  # Clear the screen
-  clear
-
   # Ask for user input
   echo " -------------- "
   echo "| [R]un app    |"
