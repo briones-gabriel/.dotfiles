@@ -8,6 +8,8 @@ $character
 
 # Inserts a blank line between shell prompts
 add_newline = false
+# Waits for commands before executing
+command_timeout = 1000
 
 # Prompt config
 [character]

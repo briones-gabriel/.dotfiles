@@ -47,8 +47,7 @@ nmap <Leader>q   :q<CR>
 :map ;r          <Action>(Run)
 :map ;t          <Action>(ActivateTerminalToolWindow)
 :map ;r          <Action>(RenameElement)
-:map ;f          <Action>(GotoFile)
-:map ;d          <Action>(QuickJavaDoc)
 
 :map gu          <Action>(FindUsages)
 :map gc          <Action>(GotoClass)
+:map gf          <Action>(GotoFile)
