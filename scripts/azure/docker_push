@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Check if there are unstaged changes in the project
 cd ~/Projects/eutopia-green/
@@ -16,7 +17,7 @@ push_type=$1
 branch=$2
 
 # Get the last dev version of the app & set the new
-cd ~/scripts/azure
+cd ~/.dotfiles/scripts/azure/
 if [[ $push_type == "dev" ]]
 then
   curr_version="vT$(($(cat last_dev_version) + 1))"
@@ -82,7 +83,7 @@ sudo docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$cur
 sudo docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
 
 # Write the new 'last version'
-cd ~/scripts/azure
+cd ~/.dotfiles/scripts/azure/
 if [ $push_type == "dev"]
 then
   echo $curr_version > last_dev_version
