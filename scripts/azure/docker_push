@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Check if there are unstaged changes in the project
-cd ~/Projects/eutopia-green
-if [[ $(git diff --exit-code) ]]; then
+cd ~/Projects/eutopia-green/
+if [ $(git diff --exit-code) ]
+then
   # Show unstaged changes if some
   git status
   exit 1
@@ -15,19 +16,29 @@ push_type=$1
 branch=$2
 
 # Get the last dev version of the app & set the new
-cd ~/scripts
-if [[ $push_type == "dev"]]; then
+cd ~/scripts/azure
+if [[ $push_type == "dev" ]]
+then
   curr_version="vT$(($(cat last_dev_version) + 1))"
-else
+elif [[ $push_type == "stable" ]]
+then
   curr_version="vS$(($(cat last_stable_version) + 1))"
+else
+  echo "No push type specified: [dev or stable]"
+  exit 1
 fi
 
 # Use the current branch if a branch is not specified
-if [[ -z "$branch" ]]; then
+cd ~/Projects/eutopia-green/
+if [ -z "$branch" ]
+then
   branch="$(git branch --show-current)"
   printf '%s\n' "No branch specified, using [$branch] branch"
   # Exit if no branch in local files
-  if [[ -z "$branch" ]]; then exit 1 fi
+  if [ -z "$branch" ]
+  then
+    exit 1
+  fi
 fi
 
 # Data confirmation
@@ -49,11 +60,13 @@ git checkout $branch > /dev/null 2>&1 && echo
 git pull && echo
 
 # Build the front-end
-if [[ $push_type == "dev"]]; then
+if [ $push_type == "dev"]
+then
   yarn build
 else
   yarn build-min
-fi echo
+fi
+echo
 
 # Build the bakc-end
 mvn package
@@ -69,8 +82,9 @@ sudo docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$cur
 sudo docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
 
 # Write the new 'last version'
-cd ~/scripts
-if [[ $push_type == "dev"]]; then
+cd ~/scripts/azure
+if [ $push_type == "dev"]
+then
   echo $curr_version > last_dev_version
 else
   echo $curr_version > last_stable_version
