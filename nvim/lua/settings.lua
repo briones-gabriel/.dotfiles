@@ -42,7 +42,7 @@ opt.fillchars       = {eob = " "}                                              -
 opt.shortmess:append("sIc")
 opt.shell           = "/bin/bash"
 opt.guicursor       = "i:block"
-opt.foldmethod      = "indent"
+--opt.foldmethod      = "indent"
 opt.fileencoding    = "utf-8"                                                  --- The enconding written to a file
 opt.encoding        = "utf-8"                                                  --- The encoding displayed
 opt.colorcolumn     = "120"                                                    --- Sets the color column distance

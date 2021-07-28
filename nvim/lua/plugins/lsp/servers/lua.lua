@@ -1,5 +1,6 @@
-return function (lsp, on_attach)
+return function (lsp, on_attach, capabilities)
   lsp.lua.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     root_dir = vim.loop.cwd,
     settings = {

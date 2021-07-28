@@ -39,7 +39,7 @@ return function ()
     " ﳤ  (Struct)",
     "   (Event)",
     "   (Operator)",
-    "   (TypeParameter)"
+    "   (TypeParameter)",
   }
 
   --- SIGN DEFINITION ---

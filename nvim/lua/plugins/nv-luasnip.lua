@@ -6,7 +6,7 @@ end
 luasnip.config.set_config(
   {
     history = true,
-    updateevents = "TextChanged,TextChangedI"
+    updateevents = "InsertLeave"
   }
 )
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").load()

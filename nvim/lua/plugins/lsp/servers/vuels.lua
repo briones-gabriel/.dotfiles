@@ -1,6 +1,8 @@
-return function (lsp, on_attach)
-  lsp.vue.setup {
+return function (lsp, on_attach, capabilities)
+  lsp.vuels.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "vls" },
     filetypes = { "vue" },
     init_options = {
       config = {
@@ -21,18 +23,23 @@ return function (lsp, on_attach)
           completion = {
             autoImport = true,
             tagCasing = "kebab",
-            useScaffoldSnippets = true,
+            useScaffoldSnippets = false
           },
           format = {
-            useTabs = true,
-            tabSize = 2,
+            options = {
+              useTabs = true,
+              tabSize = 2,
+            },
             defaultFormatter = {
-              js = "none",
-              ts = "none"
+              js = "prettier",
+              ts = "prettier",
+              html = "prettier",
+              css = "prettier",
+              scss = "prettier",
             },
             defaultFormatterOptions = {},
-            scriptInitialIndent = true,
-            styleInitialIndent = true
+            scriptInitialIndent = false,
+            styleInitialIndent = false
           },
           useWorkspaceDependencies = false,
           validation = {
@@ -43,6 +50,6 @@ return function (lsp, on_attach)
         }
       }
     },
-    root_dir = lsp.util.root_pattern("package.json", "vue.config.js")
+    root_dir = lsp.util.root_pattern("package.json", "vue.config.js"),
   }
 end

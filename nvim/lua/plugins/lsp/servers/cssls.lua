@@ -1,8 +1,10 @@
-return function (lsp, on_attach)
-  lsp.css.setup {
+return function (lsp, on_attach, capabilities)
+  lsp.cssls.setup {
+    cmd = { "vscode-css-language-server", "--stdio" },
+    capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { "css", "scss", "less" },
     root_dir = lsp.util.root_pattern("package.json"),
+    filetypes = { "css", "scss", "less" },
     settings = {
       css = {
         validate = true
