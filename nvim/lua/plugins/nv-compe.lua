@@ -26,7 +26,7 @@ require("compe").setup {
   },
   source = {
     nvim_lsp          = true,
-    luasnip           = true,
+    luasnip           = false,
     spell             = true,
     path              = true,
     buffer            = true,

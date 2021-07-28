@@ -24,15 +24,15 @@ local function setup_servers()
   -- servers
   local servers = {
     -- LspInstall
-    "lua",
-    --"java",
+    --"lua",
+    "java",
     -- Manually installed servers
     "tsserver",
     "html",
     "cssls",
     --"intelephense",
-    "jsonls",
-    "sqlls",
+    --"jsonls",
+    --"sqlls",
     "vuels",
   }
 
