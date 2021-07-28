@@ -83,6 +83,7 @@ docker build -t eutopia-app:$version .
 docker tag eutopia-app:$version eutopiadev.azurecr.io/eutopia-app:$version
 
 # Push the container to Azure
+az acr login --name eutopiadev
 docker push eutopiadev.azurecr.io/eutopia-app:$version
 
 # Write the new 'last version'
