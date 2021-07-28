@@ -25,11 +25,11 @@ require("compe").setup {
     min_height        = 1,
   },
   source = {
-    nvim_lsp          = { kind = "" },
-    luasnip           = { kind = "﬌" },
-    path              = { kind = "" },
-    buffer            = { kind = "﬘" },
-    spell             = { kind = "" },
+    nvim_lsp          = true,
+    luasnip           = true,
+    path              = true,
+    spell             = true,
+    buffer            = true,
   },
 }
 

@@ -146,7 +146,7 @@ return packer.startup(
 
     use {
       "neovim/nvim-lspconfig",
-      after = "nvim-lspinstall",
+      after = "nvim-lsputils",
       config = function ()
         require "plugins.nv-lspconfig"
       end,
@@ -154,9 +154,7 @@ return packer.startup(
 
     use {
       "RishabhRD/nvim-lsputils",
-      config = function ()
-        require "plugins.nv-lsputils"
-      end,
+      after = "nvim-lspinstall",
       requires = {
         "RishabhRD/popfix",
       },
