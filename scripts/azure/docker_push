@@ -20,14 +20,18 @@ branch=$2
 cd $HOME/.dotfiles/scripts/azure
 if [[ $push_type == "dev" ]]
 then
-  curr_version="vT$(($(cat last_dev_version) + 1))"
+  version_type="vT"
+  version_number="$(($(cat last_dev_version) + 1))"
 elif [[ $push_type == "stable" ]]
 then
-  curr_version="vS$(($(cat last_stable_version) + 1))"
+  version_type="vS"
+  version_number="$(($(cat last_stable_version) + 1))"
 else
   echo "No push type specified: [dev or stable]"
   exit 1
 fi
+
+version="$version_type$version_number"
 
 # Use the current branch if a branch is not specified
 cd $HOME/Projects/eutopia-green
@@ -45,7 +49,7 @@ fi
 # Data confirmation
 echo "-$ Type: $push_type";
 echo "-$ Branch: $branch";
-echo "-$ New test version: $curr_version";
+echo "-$ New test version: $version";
 read -p "Confirm: " confirm
 
 # Start docker
@@ -73,21 +77,21 @@ echo
 mvn package
 
 # Build the container
-docker build -t eutopia-app:$curr_version .
+docker build -t eutopia-app:$version .
 
 # Tag the container
-docker tag eutopia-app:$curr_version eutopiadev.azurecr.io/eutopia-app:$curr_version
+docker tag eutopia-app:$version eutopiadev.azurecr.io/eutopia-app:$version
 
 # Push the container to Azure
-docker push eutopiadev.azurecr.io/eutopia-app:$curr_version
+docker push eutopiadev.azurecr.io/eutopia-app:$version
 
 # Write the new 'last version'
 cd /home/gabriel/.dotfiles/scripts/azure
 if [ $push_type == "dev" ]
 then
-  echo $curr_version > last_dev_version
+  echo $version_number > last_dev_version
 else
-  echo $curr_version > last_stable_version
+  echo $version_number > last_stable_version
 fi
 
 # Rebuild the back-end for future use
