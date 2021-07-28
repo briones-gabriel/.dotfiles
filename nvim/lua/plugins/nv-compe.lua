@@ -15,7 +15,7 @@ require("compe").setup {
   incomplete_delay    = 400;
   max_abbr_width      = 100;
   max_kind_width      = 100;
-  max_menu_width      = 100;
+  max_menu_width      = 0;
   documentation = {
     border            = { '', '' ,'', ' ', '', '', '', ' ' },
     winhighlight      = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
@@ -27,8 +27,8 @@ require("compe").setup {
   source = {
     nvim_lsp          = true,
     luasnip           = true,
-    path              = true,
     spell             = true,
+    path              = true,
     buffer            = true,
   },
 }
