@@ -1,6 +1,6 @@
 --- ESSENTIAL ---
 map("n",    "<Leader>w",    ":w<CR>")
-map("n",    "<Leader>q",    ":quitall<CR>")
+map("n",    "<Leader>c",    ":q<CR>")
 map("n",    "<Leader>/",    ":CommentToggle<CR>")
 map("v",    "<Leader>/",    ":CommentToggle<CR>")
 

@@ -7,7 +7,6 @@ end
 
 -- function to modify default lsp signs
 local setup_signs = require "plugins.lsp.set_signs"
-local setup_utils = require "plugins.lsp.set_utils"
 
 -- main function to setup the servers
 local function setup_servers()
@@ -25,7 +24,7 @@ local function setup_servers()
   local servers = {
     -- LspInstall
     "lua",
-    "java",
+    --"java",
     -- Manually installed servers
     "tsserver",
     "html",
@@ -47,4 +46,3 @@ end
 
 setup_servers()
 setup_signs()
-setup_utils()
