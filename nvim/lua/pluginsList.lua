@@ -68,7 +68,10 @@ return packer.startup(
     }
 
     use {
-      "kyazdani42/nvim-web-devicons"
+      "kyazdani42/nvim-web-devicons",
+      config = function ()
+        require "plugins.nv-icons"
+      end
     }
 
     --- TREESITTER ---
@@ -146,18 +149,15 @@ return packer.startup(
 
     use {
       "neovim/nvim-lspconfig",
-      after = "nvim-lsputils",
+      after = "nvim-lspinstall",
       config = function ()
         require "plugins.nv-lspconfig"
       end,
     }
 
     use {
-      "RishabhRD/nvim-lsputils",
-      after = "nvim-lspinstall",
-      requires = {
-        "RishabhRD/popfix",
-      },
+      "glepnir/lspsaga.nvim",
+      after = "nvim-lspconfig",
     }
   end
 )

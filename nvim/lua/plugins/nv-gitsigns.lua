@@ -23,7 +23,7 @@ require("gitsigns").setup {
   current_line_blame     = false,
   status_formatter       = nil,
   update_debounce        = 100,
-  sign_priority          = 6,
+  sign_priority          = 1000,
   watch_index            = { interval = 1000 },
 }
 
