@@ -68,7 +68,10 @@ return packer.startup(
     }
 
     use {
-      "kyazdani42/nvim-web-devicons"
+      "kyazdani42/nvim-web-devicons",
+      config = function ()
+        require "plugins.nv-icons"
+      end
     }
 
     --- TREESITTER ---

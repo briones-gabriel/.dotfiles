@@ -17,22 +17,31 @@ g.nvim_tree_lsp_diagnostics = 0
 g.nvim_tree_width = 30
 g.nvim_tree_follow = 1
 g.nvim_tree_allow_resize = 1
-g.nvim_tree_auto_ignore_ft = { "startify" }
+g.nvim_tree_auto_ignore_ft = {}
 g.nvim_tree_ignore = {".git", "node_modules", "target"}
 g.nvim_tree_show_icons = {
   git = 0,
   folders = 1,
   files = 1,
+  folder_arrows = 0,
 }
 g.nvim_tree_icons = {
   default = "",
+  --folder = {
+  --  default = "",
+  --  open = "",
+  --  empty = "",
+  --  empty_open = "",
+  --  symlink = "",
+  --  symlink_open = "",
+  --},
   folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
   },
 }
 
@@ -60,4 +69,5 @@ g.nvim_tree_bindings = {
   { key = "Y",                            cb = tree_cb("copy_path") },
   { key = "gy",                           cb = tree_cb("copy_absolute_path") },
   { key = "q",                            cb = tree_cb("close") },
+  { key = "c",                            cb = tree_cb("close") },
 }

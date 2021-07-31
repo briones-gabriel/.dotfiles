@@ -3,7 +3,7 @@ return function ()
   saga.init_lsp_saga {
     max_preview_lines = 4,
     border_style = "round",
-    rename_prompt_prefix = "",
+    rename_prompt_prefix = "",
     dianostic_header_icon = "",
     code_action_icon = "",
     definition_preview_icon = "",
