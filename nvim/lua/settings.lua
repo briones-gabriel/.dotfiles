@@ -29,6 +29,7 @@ opt.writebackup     = false                                                    -
 opt.hlsearch        = false
 opt.timeoutlen      = 400                                                      --- Faster completion
 opt.updatetime      = 250
+opt.foldlevelstart  = 4
 opt.scrolloff       = 4                                                        --- Always keep space when scrolling to bottom/top edge
 opt.sidescrolloff   = 4                                                        --- Lines to scroll horizontally
 opt.cmdheight       = 1    				                                             --- Give more space for displaying messages

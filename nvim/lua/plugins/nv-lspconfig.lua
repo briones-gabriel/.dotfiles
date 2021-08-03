@@ -29,7 +29,7 @@ local function setup_servers()
     "tsserver",
     "html",
     "cssls",
-    --"intelephense",
+    "intelephense",
     --"jsonls",
     --"sqlls",
     "vuels",

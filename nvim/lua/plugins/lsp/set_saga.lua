@@ -39,7 +39,7 @@ return function ()
 
   -- Change floating window background color
   vim.cmd([[
-    hi LspFloatWinNormal guibg=bg
+  hi LspFloatWinNormal guibg=bg
   ]])
 
 end
