@@ -31,6 +31,6 @@ return function(client, bufnr)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
-    buf_map("n",    "<Leader>f",    ":lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_map("n",    "<Leader>f",    ":Format<CR>", opts)
   end
 end

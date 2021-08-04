@@ -4,7 +4,7 @@ return function (lsp, on_attach, capabilities)
     on_attach = on_attach,
     cmd = { "vscode-html-language-server", "--stdio" },
     settings = {},
-    filetypes = { "html", "php" },
+    filetypes = { "html" },
     init_options = {
       configurationSection = { "html", "css", "javascript" },
       embeddedLanguages = {
