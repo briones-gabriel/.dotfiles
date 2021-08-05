@@ -110,12 +110,10 @@ return packer.startup(
         },
         {
           "nvim-lua/popup.nvim",
-          after = "plenary.nvim",
         },
         {
           "nvim-telescope/telescope-fzf-native.nvim",
           run = "make",
-          after = "plenary.nvim",
         },
       }
     }
