@@ -23,7 +23,7 @@ map("n",    "<C-h>",        ":bp<CR>")
 map("n",    "<C-w>",        ":bd<CR>")
 
 -- TELESCOPE ---
-map("n",    ";f",   ":lua require('telescope.builtin').find_files({ previewer = false })<CR>")
+map("n",    ";f",   ":Telescope find_files<CR>")
 
 -- GIT ---
 map("n",    ";gs",   ":G<CR>")

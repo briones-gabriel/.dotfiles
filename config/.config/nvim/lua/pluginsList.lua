@@ -17,7 +17,7 @@ return packer.startup(
 
     --- COLORSCHEMES ---
     use {
-      "shaunsingh/nord.nvim"
+      "shaunsingh/nord.nvim",
     }
 
     --- GIT ---
@@ -77,6 +77,7 @@ return packer.startup(
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
+      event = "BufRead",
       branch = "0.5-compat",
       config = function ()
         require "plugins.nv-treesitter"
@@ -99,6 +100,7 @@ return packer.startup(
     --- TELESCOPE ---
     use {
       "nvim-telescope/telescope.nvim",
+      cmd = "Telescope",
       config = function ()
         require "plugins.nv-telescope"
       end,
@@ -108,13 +110,14 @@ return packer.startup(
         },
         {
           "nvim-lua/popup.nvim",
+          after = "plenary.nvim",
+        },
+        {
+          "nvim-telescope/telescope-fzf-native.nvim",
+          run = "make",
+          after = "plenary.nvim",
         },
       }
-    }
-
-    use {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make",
     }
 
     --- COMPLETION ---
@@ -129,14 +132,14 @@ return packer.startup(
         {
           "L3MON4D3/LuaSnip",
           wants = "friendly-snippets",
-          event = "InsertCharPre",
+          after = "nvim-compe",
           config = function ()
             require "plugins.nv-luasnip"
           end
         },
         {
           "rafamadriz/friendly-snippets",
-          event = "InsertCharPre",
+          after = "nvim-compe",
         }
       }
     }

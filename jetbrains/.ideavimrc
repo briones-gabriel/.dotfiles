@@ -31,6 +31,7 @@ set ideamarks
 """ Mappings --------------------------------
 nmap <Leader>w   :w<CR>
 nmap <Leader>q   :q<CR>
+nmap <Leader>c   :q<CR>
 :map <leader>t   :NERDTreeFind<CR>
 :map <leader>fm  <Action>(ReformatCode)
 :map <leader>e   <Action>(ShowErrorDescription)
