@@ -3,12 +3,11 @@ if not present then
   return
 end
 
-luasnip.config.set_config(
-  {
-    history = true,
-    updateevents = "InsertLeave"
-  }
-)
+luasnip.config.set_config({
+  history = true,
+  updateevents = "InsertLeave"
+})
+
 require("luasnip/loaders/from_vscode").load({
   include = {
     "vue",
@@ -19,5 +18,6 @@ require("luasnip/loaders/from_vscode").load({
     "lua",
     "php",
     "sql",
+    "json",
   }
 })

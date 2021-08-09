@@ -10,37 +10,38 @@ return function ()
       },
       signs = false,
       underline = true,
+      update_in_insert = false,
     }
   )
 
   --- COMPLETION SYMBOLS ---
-  --vim.lsp.protocol.CompletionItemKind = {
-  --  "   (Text) ",
-  --  "   (Method)",
-  --  "   (Function)",
-  --  "   (Constructor)",
-  --  " ﴲ  (Field)",
-  --  "[] (Variable)",
-  --  "   (Class)",
-  --  " ﰮ  (Interface)",
-  --  "   (Module)",
-  --  " 襁 (Property)",
-  --  "   (Unit)",
-  --  "   (Value)",
-  --  " 練 (Enum)",
-  --  "   (Keyword)",
-  --  "   (Snippet)",
-  --  "   (Color)",
-  --  "   (File)",
-  --  "   (Reference)",
-  --  "   (Folder)",
-  --  "   (EnumMember)",
-  --  " ﲀ  (Constant)",
-  --  " ﳤ  (Struct)",
-  --  "   (Event)",
-  --  "   (Operator)",
-  --  "   (TypeParameter)",
-  --}
+  local icons = {
+    Class       = "   (Class)",
+    Color       = "   (Color)",
+    Constant    = " ﲀ  (Constant)",
+    Constructor = "   (Constructor)",
+    Enum        = " 練 (Enum)",
+    EnumMember  = "   (EnumMember)",
+    Field       = "   (Field)",
+    File        = "   (File)",
+    Folder      = "   (Folder)",
+    Function    = "   (Function)",
+    Interface   = " ﰮ  (Interface)",
+    Keyword     = "   (Keyword)",
+    Method      = "   (Method)",
+    Module      = "   (Module)",
+    Property    = " 襁 (Property)",
+    Snippet     = "   (Snippet)",
+    Struct      = " ﳤ  (Struct)",
+    Text        = "   (Text) ",
+    Unit        = "   (Unit)",
+    Value       = "   (Value)",
+    Variable    = "  (Variable)",
+  }
+  local kinds = vim.lsp.protocol.CompletionItemKind
+  for i, kind in ipairs(kinds) do
+    kinds[i] = icons[kind] or kind
+  end
 
   --- SIGN DEFINITION ---
   local sign_def = function (sign, icon) fn.sign_define(sign, {text = icon}) end

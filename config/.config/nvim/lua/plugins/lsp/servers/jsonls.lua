@@ -1,5 +1,8 @@
 return function (lsp, on_attach, capabilities)
   lsp.jsonls.setup {
+    flags = {
+      debounce_text_changes = 500,
+    },
     cmd = { "vscode-json-language-server", "--stdio" },
     filetypes = { "json" },
     on_attach = on_attach,

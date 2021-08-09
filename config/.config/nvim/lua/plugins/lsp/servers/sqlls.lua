@@ -1,5 +1,8 @@
 return function (lsp, on_attach, capabilities)
   lsp.sqlls.setup {
+    flags = {
+      debounce_text_changes = 500,
+    },
     cmd = { 'sql-language-server', 'up', '--method', 'stdio' },
     filetypes = { "sql", "mysql" },
     on_attach = on_attach,

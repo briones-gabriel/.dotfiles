@@ -1,5 +1,8 @@
 return function (lsp, on_attach, capabilities)
   lsp.vuels.setup {
+    flags = {
+      debounce_text_changes = 500,
+    },
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "vls" },

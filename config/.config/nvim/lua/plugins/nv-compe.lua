@@ -26,40 +26,51 @@ require("compe").setup {
   },
   source = {
     nvim_lsp          = true,
-    nvim_lua          = true,
-    luasnip           = true,
-    spell             = true,
-    path              = true,
-    buffer            = true,
+    path              = { kind = "   (Path)" },
+    luasnip           = { kind = "   (Snippet)" },
+    spell             = { kind = "   (Spell)" },
+    buffer            = { kind = "   (Buffer)" },
   },
 }
 
 --- TAB FUNCTIONS ---
+local function prequire(...)
+  local status, lib = pcall(require, ...)
+  if (status) then return lib end
+  return nil
+end
+
+local luasnip = prequire('luasnip')
+
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
   local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
 end
 
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif require("luasnip").expand_or_jumpable() then
+  elseif luasnip and luasnip.expand_or_jumpable() then
     return t "<cmd>lua require'luasnip'.jump(1)<Cr>"
   elseif check_back_space() then
     return t "<Tab>"
   else
-    return vim.fn["compe#complete"]()
+    return vim.fn['compe#complete']()
   end
 end
 
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
-  elseif require("luasnip").jumpable(-1) then
+  elseif luasnip and luasnip.jumpable(-1) then
     return t "<cmd>lua require'luasnip'.jump(-1)<CR>"
   else
     return t "<S-Tab>"
@@ -68,8 +79,6 @@ end
 
 --- MAPS ---
 map("i",    "<CR>",        "compe#confirm('<CR>')",     {expr = true})
-map("i",    "<C-space>",   "compe#complete()",          {expr = true})
-map("i",    "<C-e>",       "compe#close(\'<c-e>\')",    {expr = true})
 map("i",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
 map("s",    "<Tab>",       "v:lua.tab_complete()",      {expr = true})
 map("i",    "<S-Tab>",     "v:lua.s_tab_complete()",    {expr = true})
