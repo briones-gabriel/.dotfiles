@@ -9,6 +9,8 @@ return function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_map("n",    "K",            "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  buf_map("n",    "<C-k>",        "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_map("n",    "fd",           ":lua vim.lsp.buf.definition()<CR>", opts)
   buf_map("n",    "fr",           ":lua vim.lsp.buf.references()<CR>", opts)
   buf_map("n",    "gn",           ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
@@ -22,10 +24,6 @@ return function(client, bufnr)
     buf_map("v",    ";a",           ":<C-U>Lspsaga range_code_action<CR>", opts)
     buf_map("n",    ";a",           ":Lspsaga code_action<CR>", opts)
     buf_map("n",    ";r",           ":Lspsaga rename<CR>", opts)
-    buf_map("n",    "K",            ":Lspsaga hover_doc<CR>", opts)
-    buf_map("n",    "<C-k>",        ":Lspsaga signature_help<CR>", opts)
-    buf_map("n",    "<C-f>",        ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
-    buf_map("n",    "<C-b>",        ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
     buf_map("n",    "<C-d>",        ":Lspsaga preview_definition<CR>", opts)
   end
 
