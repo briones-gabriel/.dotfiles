@@ -1,5 +1,8 @@
 return function (lsp, on_attach, capabilities)
   lsp.html.setup {
+    flags = {
+      debounce_text_changes = 500,
+    },
     capabilities = capabilities,
     on_attach = on_attach,
     cmd = { "vscode-html-language-server", "--stdio" },
