@@ -15,3 +15,14 @@ _G.map = function (mode, lhs, rhs, opts)
   end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
+_G.borders = {
+  {"╭", "FloatBorder"},
+  {"─", "FloatBorder"},
+  {"╮", "FloatBorder"},
+  {"│", "FloatBorder"},
+  {"╯", "FloatBorder"},
+  {"─", "FloatBorder"},
+  {"╰", "FloatBorder"},
+  {"│", "FloatBorder"},
+}
