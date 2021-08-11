@@ -26,7 +26,7 @@ require("compe").setup {
   },
   source = {
     nvim_lsp          = true,
-    path              = { kind = "   (Path)" },
+    --path              = { kind = "   (Path)" },
     luasnip           = { kind = "   (Snippet)" },
     spell             = { kind = "   (Spell)" },
     buffer            = { kind = "   (Buffer)" },

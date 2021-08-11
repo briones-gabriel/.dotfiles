@@ -9,18 +9,22 @@ require"nvim-web-devicons".setup {
     },
     js = {
       icon = "",
+      color = "#F7E01D",
       name = "JavaScript"
     },
     ts = {
       icon = "",
+      color = "#3078C6",
       name = "TypeScript"
     },
     html = {
       icon = "",
+      color = "#E24E25",
       name = "HTML"
     },
     css = {
       icon = "",
+      color = "#0377BD",
       name = "CSS"
     },
   };

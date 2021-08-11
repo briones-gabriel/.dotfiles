@@ -7,6 +7,6 @@ return function (lsp, on_attach, capabilities)
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "php" },
-    root_dir = lsp.util.root_pattern("composer.json", ".git"),
+    root_dir = lsp.util.root_pattern("composer.json", ".git", "index.php"),
   }
 end
