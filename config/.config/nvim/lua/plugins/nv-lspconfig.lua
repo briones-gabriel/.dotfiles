@@ -31,7 +31,7 @@ local function setup_servers()
     "cssls",
     "intelephense",
     --"jsonls",
-    --"sqlls",
+    "sqlls",
     --"vuels",
     --"diagnosticls",
     --"efm",

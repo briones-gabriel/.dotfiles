@@ -6,7 +6,7 @@ return function (lsp, on_attach, capabilities)
     cmd = { "vscode-css-language-server", "--stdio" },
     capabilities = capabilities,
     on_attach = on_attach,
-    root_dir = lsp.util.root_pattern("package.json"),
+    root_dir = lsp.util.root_pattern("package.json", "styles.css"),
     filetypes = { "css", "scss", "less" },
     settings = {
       css = {
