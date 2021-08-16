@@ -18,7 +18,7 @@ local function setup_servers()
 
   -- capabilities to enable snippets support
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  --capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   -- servers
   local servers = {
