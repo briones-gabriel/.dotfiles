@@ -11,9 +11,16 @@ g.coq_settings = {
     },
     tree_sitter = {
       short_name = "TS",
+      enabled = false,
     },
     buffers = {
       short_name = "BUF",
+    },
+    tmux = {
+      enabled = false,
+    },
+    tabnine = {
+      enabled = false,
     },
   },
   match = {
@@ -21,6 +28,7 @@ g.coq_settings = {
   },
   display = {
     pum = {
+      x_truncate_len = 1,
       x_max_len = 64,
       kind_context = {" ", ""},
       source_context = {"[", "]"},
