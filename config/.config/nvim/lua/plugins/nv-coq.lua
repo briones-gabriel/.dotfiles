@@ -1,6 +1,6 @@
 g.coq_settings = {
   keymap = {
-    jump_to_mark = "<c-m>",
+    jump_to_mark = "<c-j>",
   },
   clients = {
     lsp = {
@@ -32,7 +32,7 @@ g.coq_settings = {
         south = 3,
         west = 2,
         east = 1,
-      }
+      },
     },
   },
 }

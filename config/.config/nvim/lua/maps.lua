@@ -11,21 +11,21 @@ map("n",    "<Leader>t",    ":NvimTreeToggle<CR>")
 map("v",    "J",            ":m '>+1<CR>gv=gv")
 map("v",    "K",            ":m '<-2<CR>gv=gv")
 
--- BUFFER NAVIGATION ---
+--- BUFFER NAVIGATION ---
 map("n",    "<S-h>",        "<C-W><C-H>")
 map("n",    "<S-j>",        "<C-W><C-J>")
 map("n",    "<S-k>",        "<C-W><C-K>")
 map("n",    "<S-l>",        "<C-W><C-L>")
 
--- BUFFER LINE NAVIGATION ---
+--- BUFFER LINE NAVIGATION ---
 map("n",    "<C-l>",        ":bn<CR>")
 map("n",    "<C-h>",        ":bp<CR>")
 map("n",    "<C-w>",        ":bd<CR>")
 
--- TELESCOPE ---
+--- TELESCOPE ---
 map("n",    ";f",   ":Telescope find_files<CR>")
 
--- GIT ---
+--- GIT ---
 map("n",    ";gs",   ":G<CR>")
 map("n",    ";gpl",  ":G pull<CR>")
 map("n",    ";gps",  ":G push<CR>")
@@ -33,3 +33,6 @@ map("n",    ";gc",   ":G commit<CR>")
 map("n",    ";ga",   ":Git add .<CR>")
 map("n",    ";gh",   ":diffget //2<CR>")
 map("n",    ";gl",   ":diffget //3<CR>")
+
+--- TERMINAL ---
+map("n", ";t",  "<cmd>lua require('toolwindow').open_window('term', nil)<CR>")
