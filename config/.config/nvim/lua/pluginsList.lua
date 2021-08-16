@@ -127,7 +127,7 @@ return packer.startup(
       branch = "coq",
       config = function ()
         require "plugins.nv-coq"
-        cmd "COQnow --shut-up"
+        cmd "COQnow -s"
       end,
       requires = {
         {
