@@ -13,7 +13,7 @@ g.nord_enable_sidebar_background = false
 require("nord").set()
 
 vim.cmd([[
-    syntax on
-    filetype on
-    filetype plugin indent on
+  syntax on
+  filetype on
+  filetype plugin indent on
 ]])

@@ -1,4 +1,7 @@
 g.coq_settings = {
+  keymap = {
+    jump_to_mark = "<c-m>",
+  },
   clients = {
     lsp = {
       short_name = "LSP",

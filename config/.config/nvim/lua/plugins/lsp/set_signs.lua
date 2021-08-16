@@ -1,7 +1,7 @@
 return function ()
   local lsp = vim.lsp
   vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
-  vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]] 
+  vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
   --- ERROR SYMBOL ---
   lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
@@ -12,7 +12,7 @@ return function ()
       },
       signs = false,
       underline = true,
-      update_in_insert = false,
+      update_in_insert = true,
     }
   )
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = borders})
