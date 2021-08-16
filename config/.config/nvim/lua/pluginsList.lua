@@ -24,6 +24,7 @@ return packer.startup(
     use {
       "lewis6991/gitsigns.nvim",
       event = "BufRead",
+      branch = "main",
       config = function ()
         require "plugins.nv-gitsigns"
       end,
@@ -86,7 +87,7 @@ return packer.startup(
 
     use {
       "windwp/nvim-autopairs",
-      after = "nvim-compe",
+      after = "coq_nvim",
       config = function ()
         require "plugins.nv-autopairs"
       end,
@@ -120,25 +121,20 @@ return packer.startup(
 
     --- COMPLETION ---
     use {
-      "hrsh7th/nvim-compe",
+      "ms-jpq/coq_nvim",
+      run = "COQdeps",
       event = "InsertEnter",
+      branch = "coq",
       config = function ()
-        require "plugins.nv-compe"
+        require "plugins.nv-coq"
+        cmd "COQnow"
       end,
-      wants = "LuaSnip",
       requires = {
         {
-          "L3MON4D3/LuaSnip",
-          wants = "friendly-snippets",
-          after = "nvim-compe",
-          config = function ()
-            require "plugins.nv-luasnip"
-          end
+          "ms-jpq/coq.artifacts",
+          branch = "artifacts",
+          after = "coq_nvim",
         },
-        {
-          "rafamadriz/friendly-snippets",
-          after = "nvim-compe",
-        }
       }
     }
 
@@ -167,6 +163,17 @@ return packer.startup(
       config = function ()
         require "plugins.nv-formatter"
       end
+    }
+
+    use {
+      "ethanjwright/toolwindow.nvim",
+      module = "toolwindow",
+      requires = {
+        {
+          "akinsho/nvim-toggleterm.lua",
+          module = "toggleterm.terminal",
+        },
+      },
     }
   end
 )

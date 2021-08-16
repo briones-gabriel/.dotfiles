@@ -16,7 +16,6 @@ require("gitsigns").setup {
     --topdelete            = { hl = "GitDelete", text = "▕", numhl = "GitSignsDeleteNr" },
     --changedelete         = { hl = "GitChange", text = "▕", numhl = "GitSignsChangeNr" },
   },
-  use_decoration_api     = true,
   use_internal_diff      = true,
   numhl                  = false,
   linehl                 = false,

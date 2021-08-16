@@ -7,12 +7,13 @@ return function (lsp, on_attach, capabilities)
     on_attach = on_attach,
     cmd = { "vscode-html-language-server", "--stdio" },
     settings = {},
-    filetypes = { "html" },
+    filetypes = { "html", "php" },
     init_options = {
-      configurationSection = { "html", "css", "javascript" },
+      configurationSection = { "html", "css", "javascript", "php" },
       embeddedLanguages = {
         css = true,
         javascript = true,
+        php = true,
       },
     },
     root_dir = function(_)
