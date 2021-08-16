@@ -86,7 +86,6 @@ return packer.startup(
 
     use {
       "windwp/nvim-autopairs",
-      after = "nvim-compe",
       config = function ()
         require "plugins.nv-autopairs"
       end,
@@ -120,25 +119,19 @@ return packer.startup(
 
     --- COMPLETION ---
     use {
-      "hrsh7th/nvim-compe",
+      "ms-jpq/coq_nvim",
       event = "InsertEnter",
+      branch = "coq",
       config = function ()
-        require "plugins.nv-compe"
+        require "plugins.nv-coq"
+        vim.cmd("COQnow")
       end,
-      wants = "LuaSnip",
       requires = {
         {
-          "L3MON4D3/LuaSnip",
-          wants = "friendly-snippets",
-          after = "nvim-compe",
-          config = function ()
-            require "plugins.nv-luasnip"
-          end
+          "ms-jpq/coq.artifacts",
+          branch = "artifacts",
+          after = "coq_nvim",
         },
-        {
-          "rafamadriz/friendly-snippets",
-          after = "nvim-compe",
-        }
       }
     }
 
