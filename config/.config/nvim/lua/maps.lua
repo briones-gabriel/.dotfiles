@@ -23,16 +23,18 @@ map("n",    "<C-h>",        ":bp<CR>")
 map("n",    "<C-w>",        ":bd<CR>")
 
 --- TELESCOPE ---
-map("n",    ";f",   ":Telescope find_files<CR>")
+map("n",    ";ff",   ":Telescope find_files<CR>")
+map("n",    ";fw",   ":Telescope live_grep<CR>")
+map("n",    ";fg",   ":Telescope git_branches<CR>")
 
 --- GIT ---
-map("n",    ";gs",   ":G<CR>")
-map("n",    ";gpl",  ":G pull<CR>")
-map("n",    ";gps",  ":G push<CR>")
-map("n",    ";gc",   ":G commit<CR>")
-map("n",    ";ga",   ":Git add .<CR>")
+map("n",    ";s",    ":G<CR>")
+map("n",    ";c",    ":G commit<CR>")
 map("n",    ";gh",   ":diffget //2<CR>")
 map("n",    ";gl",   ":diffget //3<CR>")
+--map("n",    ";gpl",  ":G pull<CR>")
+--map("n",    ";gps",  ":G push<CR>")
+--map("n",    ";ga",   ":Git add .<CR>")
 
 --- TERMINAL ---
 map("n", ";t",  "<cmd>lua require('toolwindow').open_window('term', nil)<CR>")
