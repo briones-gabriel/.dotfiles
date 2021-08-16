@@ -4,7 +4,7 @@ if not present then
   return
 end
 
-g.nord_contrast                  = true
+g.nord_contrast                  = false
 g.nord_borders                   = true
 g.nord_disable_background        = false
 g.nord_cursorline_transparent    = false

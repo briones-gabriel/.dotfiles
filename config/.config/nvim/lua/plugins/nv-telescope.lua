@@ -7,7 +7,6 @@ end
 local actions = require("telescope.actions")
 
 require("telescope").setup {
-
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -36,11 +35,11 @@ require("telescope").setup {
       },
     },
     layout_config = {
-      horizontal = { mirror = false },
+      horizontal = {
+        mirror = false
+      },
       vertical = {
         mirror = false,
-        height = 0.5,
-        width  = 0.5,
       },
       center = {
         mirror = false,
@@ -53,8 +52,8 @@ require("telescope").setup {
     generic_sorter              = require"telescope.sorters".get_generic_fuzzy_sorter,
     path_display                = {"absolute"},
     winblend                    = 0,
-    --border                      = {},
-    --borderchars                 = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
+    border                      = {},
+    borderchars                 = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons              = true,
     use_less                    = true,
     set_env                     = nil,
@@ -69,7 +68,13 @@ require("telescope").setup {
       override_generic_sorter = false, -- override the generic sorter
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-    }
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+    },
   },
 }
 require("telescope").load_extension("fzf")
