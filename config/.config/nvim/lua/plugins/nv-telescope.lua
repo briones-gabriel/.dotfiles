@@ -9,17 +9,21 @@ local previewers = require "telescope.previewers"
 local sorters    = require "telescope.sorters"
 local actions    = require "telescope.actions"
 
+local common_picker = {
+  --theme = "dropdown",
+  previewer = false,
+  layout_config = {
+    mirror = true,
+    height = 0.5,
+    width  = 0.5
+  },
+}
+
 telescope.setup {
   pickers = {
-    find_files = {
-      --theme = "dropdown",
-      previewer = false,
-      layout_config = {
-        mirror = true,
-        height = 0.5,
-        width  = 0.5,
-      }
-    },
+    find_files = common_picker,
+    live_grep = common_picker,
+    git_branches = common_picker,
   },
   defaults = {
     prompt_prefix               = " ",
