@@ -1,23 +1,16 @@
-return function (lsp, on_attach, capabilities)
-  lsp.cssls.setup {
-    flags = {
-      debounce_text_changes = 500,
+return {
+  cmd = { "vscode-css-language-server", "--stdio" },
+  root_dir = require("lspconfig").util.root_pattern("package.json", "*.css"),
+  filetypes = { "css", "scss", "less" },
+  settings = {
+    css = {
+      validate = true
     },
-    cmd = { "vscode-css-language-server", "--stdio" },
-    capabilities = capabilities,
-    on_attach = on_attach,
-    root_dir = lsp.util.root_pattern("package.json", "styles.css"),
-    filetypes = { "css", "scss", "less" },
-    settings = {
-      css = {
-        validate = true
-      },
-      less = {
-        validate = true
-      },
-      scss = {
-        validate = true
-      },
+    less = {
+      validate = true
     },
-  }
-end
+    scss = {
+      validate = true
+    },
+  },
+}

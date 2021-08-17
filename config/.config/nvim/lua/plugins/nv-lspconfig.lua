@@ -16,11 +16,10 @@ local function setup_servers()
   -- on_attach function for lsp
   local on_attach = require "plugins.lsp.on_attach"
 
-  -- capabilities to enable snippets support
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  --capabilities.textDocument.completion.completionItem.snippetSupport = true
+  -- coq preparation
+  require("packer").loader("coq_nvim coq.artifacts")
 
-  -- servers
+  -- language servers
   local servers = {
     -- LspInstall
     "lua",
@@ -29,8 +28,8 @@ local function setup_servers()
     "tsserver",
     "html",
     "cssls",
-    --"intelephense",
-    "jsonls",
+    "intelephense",
+    --"jsonls",
     "sqlls",
     "vuels",
     --"diagnosticls",
@@ -38,10 +37,15 @@ local function setup_servers()
   }
 
   lspinstall.setup()
-  for _, lang in pairs(servers) do
-    if pcall(require, "plugins.lsp.servers." .. lang) then
-      local setup_server = require("plugins.lsp.servers." .. lang)
-      setup_server(lspconfig, on_attach, capabilities)
+
+  for _, server in pairs(servers) do
+    if pcall(require, "plugins.lsp.servers." .. server) then
+      local server_setup = require("plugins.lsp.servers." .. server)
+
+      server_setup.on_attach = on_attach
+      server_setup.flags = { debounce_text_changes = 500 }
+
+      lspconfig[server].setup(require("coq")().lsp_ensure_capabilities(server_setup))
     end
   end
 end
