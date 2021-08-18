@@ -20,6 +20,10 @@ return packer.startup(
       "shaunsingh/nord.nvim",
     }
 
+    use {
+      "EdenEast/nightfox.nvim"
+    }
+
     --- GIT ---
     use {
       "lewis6991/gitsigns.nvim",
@@ -45,10 +49,16 @@ return packer.startup(
     }
 
     --- CORE PLUGINS ---
+    --use {
+    --  "ojroques/nvim-hardline",
+    --  config = function ()
+    --    require "plugins.nv-hardline"
+    --  end
+    --}
     use {
-      "ojroques/nvim-hardline",
+      "hoob3rt/lualine.nvim",
       config = function ()
-        require "plugins.nv-hardline"
+        require "plugins.nv-lualine"
       end
     }
 
