@@ -155,11 +155,6 @@ return packer.startup(
     }
 
     use {
-      "glepnir/lspsaga.nvim",
-      after = "nvim-lspconfig",
-    }
-
-    use {
       "mhartington/formatter.nvim",
       cmd = "Format",
       config = function ()
