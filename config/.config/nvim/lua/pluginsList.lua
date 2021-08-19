@@ -17,10 +17,6 @@ return packer.startup(
 
     --- COLORSCHEMES ---
     use {
-      "shaunsingh/nord.nvim",
-    }
-
-    use {
       "EdenEast/nightfox.nvim"
     }
 
@@ -49,12 +45,6 @@ return packer.startup(
     }
 
     --- CORE PLUGINS ---
-    --use {
-    --  "ojroques/nvim-hardline",
-    --  config = function ()
-    --    require "plugins.nv-hardline"
-    --  end
-    --}
     use {
       "hoob3rt/lualine.nvim",
       config = function ()
@@ -80,9 +70,6 @@ return packer.startup(
 
     use {
       "kyazdani42/nvim-web-devicons",
-      config = function ()
-        require "plugins.nv-icons"
-      end
     }
 
     --- TREESITTER ---
@@ -97,7 +84,7 @@ return packer.startup(
 
     use {
       "windwp/nvim-autopairs",
-      after = "coq_nvim",
+      after = "nvim-compe",
       config = function ()
         require "plugins.nv-autopairs"
       end,
@@ -131,20 +118,25 @@ return packer.startup(
 
     --- COMPLETION ---
     use {
-      "ms-jpq/coq_nvim",
-      run = "COQdeps",
+      "hrsh7th/nvim-compe",
       event = "InsertEnter",
-      branch = "coq",
       config = function ()
-        require "plugins.nv-coq"
-        cmd "COQnow -s"
+        require "plugins.nv-compe"
       end,
+      wants = "LuaSnip",
       requires = {
         {
-          "ms-jpq/coq.artifacts",
-          branch = "artifacts",
-          after = "coq_nvim",
+          "L3MON4D3/LuaSnip",
+          wants = "friendly-snippets",
+          after = "nvim-compe",
+          config = function ()
+            require "plugins.nv-luasnip"
+          end
         },
+        {
+          "rafamadriz/friendly-snippets",
+          after = "nvim-compe",
+        }
       }
     }
 

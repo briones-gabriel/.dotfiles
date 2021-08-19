@@ -16,9 +16,6 @@ local function setup_servers()
   -- on_attach function for lsp
   local on_attach = require "plugins.lsp.on_attach"
 
-  -- coq preparation
-  require("packer").loader("coq_nvim coq.artifacts")
-
   -- language servers
   local servers = {
     -- LspInstall
@@ -45,7 +42,7 @@ local function setup_servers()
       server_setup.on_attach = on_attach
       server_setup.flags = { debounce_text_changes = 500 }
 
-      lspconfig[server].setup(require("coq")().lsp_ensure_capabilities(server_setup))
+      lspconfig[server].setup(server_setup)
     end
   end
 end
