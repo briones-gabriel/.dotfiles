@@ -18,8 +18,8 @@ map("n",    "<S-k>",        "<C-W><C-K>")
 map("n",    "<S-l>",        "<C-W><C-L>")
 
 --- BUFFER LINE NAVIGATION ---
-map("n",    "<C-l>",        ":bn<CR>")
-map("n",    "<C-h>",        ":bp<CR>")
+map("n",    "<C-l>",        ":BufferLineCycleNext<CR>")
+map("n",    "<C-h>",        ":BufferLineCyclePrev<CR>")
 map("n",    "<C-w>",        ":bd<CR>")
 
 --- TELESCOPE ---

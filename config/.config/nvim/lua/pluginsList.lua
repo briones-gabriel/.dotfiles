@@ -46,6 +46,14 @@ return packer.startup(
 
     --- CORE PLUGINS ---
     use {
+      "akinsho/bufferline.nvim",
+      event = "VimEnter",
+      config = function ()
+        require "plugins.nv-bufferline"
+      end,
+    }
+
+    use {
       "hoob3rt/lualine.nvim",
       event = "BufRead",
       config = function ()
