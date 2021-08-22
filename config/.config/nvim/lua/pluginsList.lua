@@ -58,7 +58,7 @@ return packer.startup(
       event = "BufRead",
       config = function ()
         require "plugins.nv-lualine"
-      end
+      end,
     }
 
     use {

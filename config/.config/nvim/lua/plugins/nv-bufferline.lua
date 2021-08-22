@@ -1,4 +1,4 @@
-require('bufferline').setup {
+require("bufferline").setup {
   options = {
     numbers = "none",
     number_style = "", -- buffer_id at index 1, ordinal at index 2
@@ -9,25 +9,25 @@ require('bufferline').setup {
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
-    indicator_icon = '▎',
-    buffer_close_icon = '',
-    modified_icon = '●',
-    close_icon = '',
-    left_trunc_marker = '',
-    right_trunc_marker = '',
-    --- name_formatter can be used to change the buffer's label in the bufferline.
+    indicator_icon = "▎",
+    buffer_close_icon = "",
+    modified_icon = "",
+    close_icon = "",
+    left_trunc_marker = "",
+    right_trunc_marker = "",
+    --- name_formatter can be used to change the buffer"s label in the bufferline.
     --- Please note some names can/will break the
     --- bufferline so use this at your discretion knowing that it has
     --- some limitations that will *NOT* be fixed.
     name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
       -- remove extension from markdown files for example
-      if buf.name:match('%.md') then
-        return vim.fn.fnamemodify(buf.name, ':t:r')
+      if buf.name:match("%.md") then
+        return vim.fn.fnamemodify(buf.name, ":t:r")
       end
     end,
     max_name_length = 18,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-    tab_size = 18,
+    tab_size = 20,
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, _, _, _) -- (count, level, diagnostics_dict, context)
       return "("..count..")"
