@@ -47,6 +47,7 @@ return packer.startup(
     --- CORE PLUGINS ---
     use {
       "hoob3rt/lualine.nvim",
+      event = "BufRead",
       config = function ()
         require "plugins.nv-lualine"
       end
