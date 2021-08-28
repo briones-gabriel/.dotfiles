@@ -12,6 +12,7 @@ local setup_signs = require "plugins.lsp.set_signs"
 local function setup_servers()
   local lspinstall = require("lspinstall")
   local lspconfig = require("lspconfig")
+  local cmp_lsp = require("cmp_nvim_lsp")
 
   -- on_attach function for lsp
   local on_attach = require "plugins.lsp.on_attach"
@@ -38,7 +39,10 @@ local function setup_servers()
   for _, server in pairs(servers) do
     if pcall(require, "plugins.lsp.servers." .. server) then
       local server_setup = require("plugins.lsp.servers." .. server)
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = cmp_lsp.update_capabilities(capabilities)
 
+      server_setup.capabilities = capabilities
       server_setup.on_attach = on_attach
       server_setup.flags = { debounce_text_changes = 500 }
 

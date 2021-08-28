@@ -18,35 +18,6 @@ return function ()
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = borders})
   vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = borders})
 
-  --- COMPLETION SYMBOLS ---
-  local icons = {
-    Class       = "   (Class)",
-    Color       = "   (Color)",
-    Constant    = " ﲀ  (Constant)",
-    Constructor = "   (Constructor)",
-    Enum        = " 練 (Enum)",
-    EnumMember  = "   (EnumMember)",
-    Field       = "   (Field)",
-    File        = "   (File)",
-    Folder      = "   (Folder)",
-    Function    = "   (Function)",
-    Interface   = " ﰮ  (Interface)",
-    Keyword     = "   (Keyword)",
-    Method      = "   (Method)",
-    Module      = "   (Module)",
-    Property    = " 襁 (Property)",
-    Snippet     = "   (Snippet)",
-    Struct      = " ﳤ  (Struct)",
-    Text        = "   (Text) ",
-    Unit        = "   (Unit)",
-    Value       = "   (Value)",
-    Variable    = "  (Variable)",
-  }
-  local kinds = vim.lsp.protocol.CompletionItemKind
-  for i, kind in ipairs(kinds) do
-    kinds[i] = icons[kind] or kind
-  end
-
   --- SIGN DEFINITION ---
   local sign_def = function (sign, icon) fn.sign_define(sign, {text = icon}) end
 

@@ -93,7 +93,7 @@ return packer.startup(
 
     use {
       "windwp/nvim-autopairs",
-      after = "nvim-compe",
+      after = "nvim-cmp",
       config = function ()
         require "plugins.nv-autopairs"
       end,
@@ -127,27 +127,57 @@ return packer.startup(
 
     --- COMPLETION ---
     use {
-      "hrsh7th/nvim-compe",
+      "hrsh7th/nvim-cmp",
       event = "InsertEnter",
+      module = {"cmp_nvim_lsp", "nvim-autopairs.completion.cmp"},
       config = function ()
-        require "plugins.nv-compe"
+        require "plugins.nv-cmp"
       end,
-      wants = "LuaSnip",
       requires = {
         {
-          "L3MON4D3/LuaSnip",
-          wants = "friendly-snippets",
-          after = "nvim-compe",
-          config = function ()
-            require "plugins.nv-luasnip"
-          end
+          "hrsh7th/cmp-buffer",
+          after = "nvim-cmp",
         },
         {
-          "rafamadriz/friendly-snippets",
-          after = "nvim-compe",
-        }
-      }
+          "hrsh7th/cmp-nvim-lsp",
+          after = "nvim-cmp",
+        },
+        {
+          "hrsh7th/cmp-path",
+          after = "nvim-cmp",
+        },
+        {
+          "L3MON4D3/LuaSnip",
+        },
+        {
+          "saadparwaiz1/cmp_luasnip",
+          after = "nvim-cmp",
+        },
+      },
     }
+
+    --use {
+    --  "hrsh7th/nvim-compe",
+    --  event = "InsertEnter",
+    --  config = function ()
+    --    require "plugins.nv-compe"
+    --  end,
+    --  wants = "LuaSnip",
+    --  requires = {
+    --    {
+    --      "L3MON4D3/LuaSnip",
+    --      wants = "friendly-snippets",
+    --      after = "nvim-compe",
+    --      config = function ()
+    --        require "plugins.nv-luasnip"
+    --      end
+    --    },
+    --    {
+    --      "rafamadriz/friendly-snippets",
+    --      after = "nvim-compe",
+    --    }
+    --  }
+    --}
 
     --- LSP ---
     use {
