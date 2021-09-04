@@ -1,47 +1,29 @@
-local common_prettier = {
-  exe = "prettier",
-  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 120"},
-  stdin = true
+local present, formatter = pcall(require, "formatter")
+
+if not present then
+  return
+end
+
+local prettier = {
+  function ()
+    return {
+      exe = "prettier",
+      args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 120"},
+      stdin = true
+    }
+  end
 }
 
-require("formatter").setup({
+formatter.setup({
   logging = false,
   filetype = {
-    javascript = {
-      function ()
-        return common_prettier
-      end
-    },
-    json = {
-      function ()
-        return common_prettier
-      end
-    },
-    typescript = {
-      function()
-        return common_prettier
-      end
-    },
-    vue = {
-      function()
-        return common_prettier
-      end
-    },
-    html = {
-      function()
-        return common_prettier
-      end
-    },
-    css = {
-      function()
-        return common_prettier
-      end
-    },
-    scss = {
-      function()
-        return common_prettier
-      end
-    },
+    javascript = prettier,
+    json = prettier,
+    typescript = prettier,
+    vue = prettier,
+    html = prettier,
+    css = prettier,
+    scss = prettier,
     php = {
       function ()
         return {

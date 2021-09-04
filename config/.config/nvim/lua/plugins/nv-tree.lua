@@ -1,4 +1,5 @@
 local present, _ = pcall(require, "nvim-tree.config")
+
 if not present then
     return
 end

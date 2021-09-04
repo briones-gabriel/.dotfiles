@@ -1,7 +1,6 @@
-local present_lspconfig, _ = pcall(require, "lspconfig")
-local present_lspinstall, _ = pcall(require, "lspinstall")
+local present, lspconfig = pcall(require, "lspconfig")
 
-if not (present_lspconfig or present_lspinstall) then
+if not present then
   return
 end
 
@@ -10,9 +9,8 @@ local setup_signs = require "plugins.lsp.set_signs"
 
 -- main function to setup the servers
 local function setup_servers()
-  local lspinstall = require("lspinstall")
-  local lspconfig = require("lspconfig")
   local cmp_lsp = require("cmp_nvim_lsp")
+  local lspinstall = require "lspinstall"
 
   -- on_attach function for lsp
   local on_attach = require "plugins.lsp.on_attach"

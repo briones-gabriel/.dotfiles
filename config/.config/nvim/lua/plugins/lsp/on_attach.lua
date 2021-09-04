@@ -1,4 +1,4 @@
-return function(client, bufnr)
+return function(_, bufnr)
   local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_opt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -18,5 +18,4 @@ return function(client, bufnr)
   buf_map("n",    ";a",           ":lua vim.lsp.buf.code_action()<CR>", opts)
   buf_map("n",    ";r",           ":lua vim.lsp.buf.rename()<CR>", opts)
   buf_map("n",    "<Leader>f",    ":lua vim.lsp.buf.formatting()<CR>", opts)
-
 end

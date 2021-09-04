@@ -1,4 +1,10 @@
-require("bufferline").setup {
+local present, bufferline = pcall(require, "bufferline")
+
+if not present then
+  return
+end
+
+bufferline.setup {
   options = {
     numbers = "none",
     close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"

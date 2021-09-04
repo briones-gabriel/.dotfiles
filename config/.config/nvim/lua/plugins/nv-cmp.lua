@@ -1,4 +1,4 @@
-local _, present = pcall("require", "cmp")
+local _, present = pcall(require, "cmp")
 if not present then
   return
 end
@@ -30,8 +30,8 @@ local icons = {
 
 cmp.setup {
   mapping = {
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -46,7 +46,7 @@ cmp.setup {
 
   snippet = {
     expand = function(args)
-      require'luasnip'.lsp_expand(args.body)
+      require"luasnip".lsp_expand(args.body)
     end
   },
 
@@ -75,6 +75,6 @@ cmp.setup {
     { name = "nvim_lsp" },
     --{ name = "luasnip"  },
     { name = "path"     },
-    { name = "buffer"   },
+    --{ name = "buffer"   },
   },
 }

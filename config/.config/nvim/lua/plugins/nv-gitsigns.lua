@@ -1,20 +1,16 @@
-local present, _ = pcall(require, "gitsigns")
+local present, gitsigns = pcall(require, "gitsigns")
+
 if not present then
   return
 end
 
-require("gitsigns").setup {
+gitsigns.setup {
   signs = {
     add                  = { hl = "GitAdd"   , text = "▍", numhl = "GitSignsAddNr" },
     change               = { hl = "GitChange", text = "▍", numhl = "GitSignsChangeNr" },
     delete               = { hl = "GitDelete", text = "▍", numhl = "GitSignsDeleteNr" },
     topdelete            = { hl = "GitDelete", text = "▍", numhl = "GitSignsDeleteNr" },
     changedelete         = { hl = "GitChange", text = "▍", numhl = "GitSignsChangeNr" },
-    --add                  = { hl = "GitAdd"   , text = "▕", numhl = "GitSignsAddNr" },
-    --change               = { hl = "GitChange", text = "▕", numhl = "GitSignsChangeNr" },
-    --delete               = { hl = "GitDelete", text = "▕", numhl = "GitSignsDeleteNr" },
-    --topdelete            = { hl = "GitDelete", text = "▕", numhl = "GitSignsDeleteNr" },
-    --changedelete         = { hl = "GitChange", text = "▕", numhl = "GitSignsChangeNr" },
   },
   use_internal_diff      = true,
   numhl                  = false,

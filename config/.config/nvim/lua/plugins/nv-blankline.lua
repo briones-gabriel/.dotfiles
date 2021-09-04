@@ -1,4 +1,5 @@
 local present, _ = pcall(require, "indent_blankline")
+
 if not present then
   return
 end

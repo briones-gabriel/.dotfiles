@@ -1,7 +1,6 @@
-local present, _ = pcall(require, "nvim-treesitter")
-local present_2, _ = pcall(require, "nvim-treesitter.configs")
+local present, treesitter_configs = pcall(require, "nvim-treesitter.configs")
 
-if not (present or present_2) then
+if not present then
   return
 end
 
@@ -23,7 +22,7 @@ local basic_languages = {
   "tsx"
 }
 
-require("nvim-treesitter.configs").setup {
+treesitter_configs.setup {
   autotag = {
     enable  = { "html", "vue" },
   },
@@ -35,6 +34,17 @@ require("nvim-treesitter.configs").setup {
   },
   highlight = {
     enable  = basic_languages,
+  },
+  refactor = {
+    highlight_definitions = {
+      enable = basic_languages
+    },
+    highlight_current_scope = {
+      enable = false,
+    },
+    smart_rename = {
+      enable = false,
+    },
   },
 }
 
