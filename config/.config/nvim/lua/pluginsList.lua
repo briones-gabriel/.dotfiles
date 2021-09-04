@@ -56,6 +56,7 @@ return packer.startup(
     use {
       "hoob3rt/lualine.nvim",
       event = "BufRead",
+      requires = {"kyazdani42/nvim-web-devicons", opt = true},
       config = function ()
         require "plugins.nv-lualine"
       end,
@@ -89,6 +90,16 @@ return packer.startup(
       config = function ()
         require "plugins.nv-treesitter"
       end,
+      requires = {
+        {
+          "nvim-treesitter/nvim-treesitter-refactor",
+          event = "BufRead",
+        },
+        {
+          "SmiteshP/nvim-gps",
+          event = "BufRead",
+        }
+      },
     }
 
     use {
@@ -155,29 +166,6 @@ return packer.startup(
         },
       },
     }
-
-    --use {
-    --  "hrsh7th/nvim-compe",
-    --  event = "InsertEnter",
-    --  config = function ()
-    --    require "plugins.nv-compe"
-    --  end,
-    --  wants = "LuaSnip",
-    --  requires = {
-    --    {
-    --      "L3MON4D3/LuaSnip",
-    --      wants = "friendly-snippets",
-    --      after = "nvim-compe",
-    --      config = function ()
-    --        require "plugins.nv-luasnip"
-    --      end
-    --    },
-    --    {
-    --      "rafamadriz/friendly-snippets",
-    --      after = "nvim-compe",
-    --    }
-    --  }
-    --}
 
     --- LSP ---
     use {

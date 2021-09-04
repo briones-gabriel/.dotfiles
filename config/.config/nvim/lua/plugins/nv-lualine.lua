@@ -1,10 +1,12 @@
-local present, _ = pcall(require, "lualine")
+local present, lualine = pcall(require, "lualine")
 
 if not present then
   return
 end
 
-require("lualine").setup {
+local gps = require "plugins.nv-gps"
+
+lualine.setup {
   options = {
     theme = "nightfox",
     component_separators = {"", ""},
@@ -13,7 +15,17 @@ require("lualine").setup {
   sections = {
     lualine_a = { "mode" },
     lualine_b = { },
-    lualine_c = { "filename" },
+    lualine_c = {
+      {
+        "filename",
+        file_status = true,
+        path = 0
+      },
+      {
+        gps.get_location,
+        condition = gps.is_available,
+      },
+    },
     lualine_x = { "diff", "branch" },
     lualine_y = { },
     lualine_z = { }

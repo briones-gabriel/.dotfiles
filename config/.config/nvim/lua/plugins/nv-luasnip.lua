@@ -1,4 +1,5 @@
 local present, luasnip = pcall(require, "luasnip")
+
 if not present then
   return
 end
@@ -8,16 +9,4 @@ luasnip.config.set_config({
   updateevents = "InsertLeave"
 })
 
-require("luasnip/loaders/from_vscode").load({
-  include = {
-    "vue",
-    "typescript",
-    "javascript",
-    "html",
-    "java",
-    "lua",
-    "php",
-    "sql",
-    "json",
-  }
-})
+require("luasnip/loaders/from_vscode").lazy_load()

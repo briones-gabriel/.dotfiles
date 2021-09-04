@@ -37,7 +37,7 @@ opt.conceallevel    = 0                                                        -
 opt.foldcolumn      = "0"
 opt.foldmethod      = "expr"
 opt.undodir         = PATH .. ".undo"                                   --- Dir for undos
-opt.completeopt     = {"menuone", "noselect"}                                  --- Recommended by nvim-compe
+opt.completeopt     = {"menu","menuone", "noselect"}                                  --- Recommended by nvim-compe
 opt.wildignore      = {"**/node_modules/**", "**/.idea/**", "**/.git/**"}      --- Don't search inside Node.js modules (works for gutentag)
 opt.clipboard       = {"unnamed", "unnamedplus"}                               --- Copy-paste between vim and everything else
 opt.backspace       = {"indent", "eol", "start"}                               --- Making sure backspace works
@@ -51,21 +51,12 @@ opt.colorcolumn     = "120"                                                    -
 opt.signcolumn      = "yes"                                                    --- Always show the sign column, otherwise it would shift the text each time
 
 --- TABS ---
-opt.shiftwidth      = 2                                                        --- Change a number of space characeters inseted for indentation
-opt.showtabline     = 2                                                        --- Always show tabs
-opt.tabstop         = 2                                                        --- Insert 2 spaces for a tab
-opt.softtabstop     = 2                                                        --- Insert 2 spaces for a tab
 opt.expandtab       = true
 opt.autoindent      = true                                                     --- Good auto indent
 
 --- LEADER KEY ---
 vim.g.mapleader = " "
 vim.b.mapleader = " "
-
---- FUNCTIONS ---
-cmd("set formatoptions-=c")                                                    --- " Stop newline continuation of comments
-cmd("set formatoptions-=r")
-cmd("set formatoptions-=o")
 
 --- DISABLE BUILT-IN PLUGINS ---
 local disabled_built_ins = {
