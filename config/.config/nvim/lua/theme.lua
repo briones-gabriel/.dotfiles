@@ -17,7 +17,7 @@ nightfox.setup({
   hlgroup = {}
 })
 
-require('nightfox').load()
+nightfox.load()
 
 vim.cmd([[
   syntax on

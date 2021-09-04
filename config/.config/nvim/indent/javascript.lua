@@ -1,1 +1,4 @@
-cmd "setl ts=2 sw=2"
+opt.shiftwidth      = 4
+opt.showtabline     = 4
+opt.tabstop         = 4
+opt.softtabstop     = 4
