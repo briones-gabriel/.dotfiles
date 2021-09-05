@@ -32,9 +32,6 @@ map("n",    ";s",    ":G<CR>")
 map("n",    ";c",    ":G commit<CR>")
 map("n",    ";gh",   ":diffget //2<CR>")
 map("n",    ";gl",   ":diffget //3<CR>")
---map("n",    ";gpl",  ":G pull<CR>")
---map("n",    ";gps",  ":G push<CR>")
---map("n",    ";ga",   ":Git add .<CR>")
 
 --- TERMINAL ---
 map("n", ";t",  "<cmd>lua require('toolwindow').open_window('term', nil)<CR>")
