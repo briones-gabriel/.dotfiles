@@ -31,20 +31,8 @@ local icons = {
 
 cmp.setup {
   mapping = {
-    ["<Tab>"] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
-      elseif not minsnip.jump() then
-        fallback()
-      end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
-      elseif not minsnip.jump_backwards() then
-        fallback()
-      end
-    end,
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -72,7 +60,7 @@ cmp.setup {
   },
 
   completion = {
-    keyword_length = 2,
+    keyword_length = 1,
   },
 
   documentation = {
