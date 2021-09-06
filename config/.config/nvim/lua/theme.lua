@@ -8,6 +8,7 @@ local nightfox = require "nightfox"
 
 nightfox.setup({
   fox = "nordfox",
+  transparent = true,
   styles = {
     comments = "italic",
     keywods = "bold",
