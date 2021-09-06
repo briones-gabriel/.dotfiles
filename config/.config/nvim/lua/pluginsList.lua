@@ -56,7 +56,17 @@ return packer.startup(
     use {
       "hoob3rt/lualine.nvim",
       event = "BufRead",
-      requires = {"kyazdani42/nvim-web-devicons", opt = true},
+      requires = {
+        {
+          "kyazdani42/nvim-web-devicons",
+          opt = true,
+        },
+        {
+          "SmiteshP/nvim-gps",
+          module = "nvim-gps",
+          opt = true
+        },
+      },
       config = function ()
         require "plugins.nv-lualine"
       end,
@@ -95,10 +105,6 @@ return packer.startup(
           "nvim-treesitter/nvim-treesitter-refactor",
           event = "BufRead",
         },
-        {
-          "SmiteshP/nvim-gps",
-          event = "BufRead",
-        }
       },
     }
 
@@ -158,11 +164,12 @@ return packer.startup(
           after = "nvim-cmp",
         },
         {
-          "L3MON4D3/LuaSnip",
-        },
-        {
-          "saadparwaiz1/cmp_luasnip",
+          "jose-elias-alvarez/minsnip.nvim",
+          module = "minsnip",
           after = "nvim-cmp",
+          config = function ()
+            require "plugins.nv-minsnip"
+          end
         },
       },
     }

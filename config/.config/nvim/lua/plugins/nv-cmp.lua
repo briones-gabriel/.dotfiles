@@ -3,7 +3,8 @@ if not present then
   return
 end
 
-local cmp = require("cmp")
+local minsnip = require "minsnip"
+local cmp = require "cmp"
 local icons = {
   Class       = "   (Class)",
   Color       = "   (Color)",
@@ -30,8 +31,8 @@ local icons = {
 
 cmp.setup {
   mapping = {
-    ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -46,8 +47,8 @@ cmp.setup {
 
   snippet = {
     expand = function(args)
-      require"luasnip".lsp_expand(args.body)
-    end
+      minsnip.expand_anonymous(args.body)
+    end,
   },
 
   formatting = {
@@ -59,7 +60,7 @@ cmp.setup {
   },
 
   completion = {
-    keyword_length = 2,
+    keyword_length = 1,
   },
 
   documentation = {
@@ -72,8 +73,8 @@ cmp.setup {
   },
 
   sources = {
+    { name = "minsnip"  },
     { name = "nvim_lsp" },
-    --{ name = "luasnip"  },
     { name = "path"     },
     --{ name = "buffer"   },
   },
