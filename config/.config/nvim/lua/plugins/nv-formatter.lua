@@ -8,7 +8,7 @@ local prettier = {
   function ()
     return {
       exe = "prettier",
-      args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 120"},
+      args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 80", "--tab-width 4"},
       stdin = true
     }
   end
@@ -28,7 +28,7 @@ formatter.setup({
       function ()
         return {
           exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 120", "--write"},
+          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--print-width 120", "--write", "--tab-width 4"},
           stdin = true
         }
       end
