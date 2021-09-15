@@ -38,8 +38,6 @@ nmap <Leader>c   :q<CR>
 :map <leader>k   <Action>(ToggleFullScreen)
 :map <leader>/   <Action>(CommentByLineComment)
 
-:map <S-k>       <Action>(MoveLineUp)
-:map <S-j>       <Action>(MoveLineDown)
 :map <C-l>       <Action>(NextTab)
 :map <C-h>       <Action>(PreviousTab)
 
