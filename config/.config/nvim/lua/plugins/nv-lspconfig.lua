@@ -37,7 +37,7 @@ local function setup_servers()
   for _, server in pairs(servers) do
     if pcall(require, "plugins.lsp.servers." .. server) then
       local server_setup = require("plugins.lsp.servers." .. server)
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
       capabilities = cmp_lsp.update_capabilities(capabilities)
 
       server_setup.capabilities = capabilities

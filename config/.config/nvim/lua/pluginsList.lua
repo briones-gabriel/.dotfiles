@@ -102,8 +102,8 @@ return packer.startup(
           compatible_filetrees = { "nvimtree" },
           treewidth = 30,
           signcolumn = false,
-          number = true,
-          relativenumber = true,
+          number = false,
+          relativenumber = false,
           cursorline = false,
         })
       end
