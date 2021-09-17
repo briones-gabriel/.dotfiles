@@ -9,13 +9,13 @@ local nightfox = require "nightfox"
 nightfox.setup({
   fox = "nordfox",
   transparent = true,
+  colors = {},
+  hlgroup = {},
   styles = {
     comments = "italic",
     keywods = "bold",
     functions = "bold",
   },
-  colors = {},
-  hlgroup = {}
 })
 
 nightfox.load()

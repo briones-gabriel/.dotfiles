@@ -92,6 +92,23 @@ return packer.startup(
       "kyazdani42/nvim-web-devicons",
     }
 
+    use {
+      "beauwilliams/focus.nvim",
+      event = "BufRead",
+      config = function ()
+        require("focus").setup({
+          excluded_filetypes = { "toggleterm" },
+          excluded_buftypes = { "help", "prompt", "nofile" },
+          compatible_filetrees = { "nvimtree" },
+          treewidth = 30,
+          signcolumn = false,
+          number = true,
+          relativenumber = true,
+          cursorline = false,
+        })
+      end
+    }
+
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
