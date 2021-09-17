@@ -109,6 +109,14 @@ return packer.startup(
       end
     }
 
+    use {
+      "sindrets/diffview.nvim",
+      cmd = "DiffviewOpen",
+      config = function ()
+        require "plugins.nv-diffview"
+      end
+    }
+
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
