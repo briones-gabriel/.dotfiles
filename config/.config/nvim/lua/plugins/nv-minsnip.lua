@@ -80,6 +80,21 @@ local snippets = {
   a = function ()
     return html("<a href=\"#\">$1</a>")
   end,
+  html = function ()
+  	return html([[
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="description" content="description">
+            <title></title>
+        </head>
+        <body>
+            $1
+        </body>
+    </html>
+    ]])
+  end
 }
 
 minsnip.setup(snippets)

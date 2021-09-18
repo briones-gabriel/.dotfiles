@@ -23,9 +23,9 @@ map("n",    "<C-h>",        ":BufferLineCyclePrev<CR>")
 map("n",    "<C-w>",        ":bd<CR>")
 
 --- TELESCOPE ---
-map("n",    ";ff",   ":Telescope find_files<CR>")
-map("n",    ";fw",   ":Telescope live_grep<CR>")
-map("n",    ";fg",   ":Telescope git_branches<CR>")
+map("n",    ";f",   ":Telescope find_files<CR>")
+-- map("n",    ";fw",   ":Telescope live_grep<CR>")
+-- map("n",    ";fg",   ":Telescope git_branches<CR>")
 
 --- GIT ---
 map("n",    ";s",    ":G<CR>")

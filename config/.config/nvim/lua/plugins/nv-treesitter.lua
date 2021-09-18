@@ -43,8 +43,12 @@ treesitter_configs.setup {
       enable = false,
     },
     smart_rename = {
-      enable = false,
+      enable = true,
     },
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
 }
 

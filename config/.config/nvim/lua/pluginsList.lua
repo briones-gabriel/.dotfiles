@@ -92,6 +92,31 @@ return packer.startup(
       "kyazdani42/nvim-web-devicons",
     }
 
+    use {
+      "beauwilliams/focus.nvim",
+      event = "BufRead",
+      config = function ()
+        require("focus").setup({
+          excluded_filetypes = { "toggleterm" },
+          excluded_buftypes = { "help", "prompt", "nofile" },
+          compatible_filetrees = { "nvimtree" },
+          treewidth = 30,
+          signcolumn = false,
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+        })
+      end
+    }
+
+    use {
+      "sindrets/diffview.nvim",
+      cmd = "DiffviewOpen",
+      config = function ()
+        require "plugins.nv-diffview"
+      end
+    }
+
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -104,7 +129,18 @@ return packer.startup(
         {
           "nvim-treesitter/nvim-treesitter-refactor",
           event = "BufRead",
+          opt = true,
         },
+        {
+          "windwp/nvim-ts-autotag",
+          after = "nvim-treesitter",
+          opt = true,
+        },
+        {
+          "JoosepAlviste/nvim-ts-context-commentstring",
+          after = "nvim-treesitter",
+          opt = true,
+        }
       },
     }
 
@@ -114,11 +150,6 @@ return packer.startup(
       config = function ()
         require "plugins.nv-autopairs"
       end,
-    }
-
-    use {
-      "windwp/nvim-ts-autotag",
-      after = "nvim-treesitter",
     }
 
     --- TELESCOPE ---

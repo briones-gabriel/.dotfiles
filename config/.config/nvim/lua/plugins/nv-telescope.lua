@@ -9,7 +9,14 @@ local sorters    = require "telescope.sorters"
 local actions    = require "telescope.actions"
 
 local common_picker = {
-  --theme = "dropdown",
+  theme = "dropdown",
+  borderchars = {
+    { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+    prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+    results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+    preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+  },
+  prompt_title = false,
   previewer = false,
   layout_config = {
     mirror = true,
