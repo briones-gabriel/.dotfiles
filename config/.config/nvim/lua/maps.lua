@@ -1,37 +1,38 @@
---- ESSENTIAL ---
-map("n",    "<Leader>w",    ":w<CR>")
-map("n",    "<Leader>c",    ":q<CR>")
-map("n",    "<Leader>q",    ":q<CR>")
-map("n",    "<Leader>/",    ":CommentToggle<CR>")
-map("v",    "<Leader>/",    ":CommentToggle<CR>")
+local nest = require("nest")
 
---- BUFFER CONTROL ---
-map("n",    "<Leader>=",    "<C-w>=")
-map("n",    "<Leader>t",    ":NvimTreeToggle<CR>")
-map("v",    "J",            ":m '>+1<CR>gv=gv")
-map("v",    "K",            ":m '<-2<CR>gv=gv")
+--- LEADER KEY
+vim.g.mapleader = " "
 
---- BUFFER NAVIGATION ---
-map("n",    "<S-h>",        "<C-W><C-H>")
-map("n",    "<S-j>",        "<C-W><C-J>")
-map("n",    "<S-k>",        "<C-W><C-K>")
-map("n",    "<S-l>",        "<C-W><C-L>")
-
---- BUFFER LINE NAVIGATION ---
-map("n",    "<C-l>",        ":BufferLineCycleNext<CR>")
-map("n",    "<C-h>",        ":BufferLineCyclePrev<CR>")
-map("n",    "<C-w>",        ":bd<CR>")
-
---- TELESCOPE ---
-map("n",    ";f",   ":Telescope find_files<CR>")
--- map("n",    ";fw",   ":Telescope live_grep<CR>")
--- map("n",    ";fg",   ":Telescope git_branches<CR>")
-
---- GIT ---
-map("n",    ";s",    ":G<CR>")
-map("n",    ";c",    ":G commit<CR>")
-map("n",    ";gh",   ":diffget //2<CR>")
-map("n",    ";gl",   ":diffget //3<CR>")
-
---- TERMINAL ---
-map("n", ";t",  "<cmd>lua require('toolwindow').open_window('term', nil)<CR>")
+nest.applyKeymaps {
+  {
+    "<leader>", {
+      {"w", ":w<cr>"},
+      {"q", ":q<cr>"},
+      {"/", ":CommentToggle<cr>", mode = "nv"},
+      {"t", ":NvimTreeToggle<cr>"},
+    },
+  },
+  {
+    "<S-", {
+      {"h>", "<C-W><C-H>"},
+      {"j>", "<C-W><C-J>"},
+      {"k>", "<C-W><C-K>"},
+      {"l>", "<C-W><C-L>"},
+    },
+  },
+  {
+    "<C-", {
+      {"l>", ":BufferLineCycleNext<cr>"},
+      {"h>", ":BufferLineCyclePrev<cr>"},
+      {"w>", ":bd<cr>"},
+    },
+  },
+  {
+    ";", {
+      {"f", ":Telescope find_files<cr>"},
+      {"s", ":G<cr>"},
+      {"c", ":G commit<cr>"},
+      {"t", ":lua require('toolwindow').open_window('term', nil)<cr>"},
+    },
+  },
+}

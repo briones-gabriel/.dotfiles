@@ -117,6 +117,10 @@ return packer.startup(
       end
     }
 
+    use {
+      "LionC/nest.nvim",
+    }
+
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -142,14 +146,6 @@ return packer.startup(
           opt = true,
         }
       },
-    }
-
-    use {
-      "windwp/nvim-autopairs",
-      after = "nvim-cmp",
-      config = function ()
-        require "plugins.nv-autopairs"
-      end,
     }
 
     --- TELESCOPE ---
@@ -185,22 +181,34 @@ return packer.startup(
         {
           "hrsh7th/cmp-buffer",
           after = "nvim-cmp",
+          opt = true,
         },
         {
           "hrsh7th/cmp-nvim-lsp",
           after = "nvim-cmp",
+          opt = true,
         },
         {
           "hrsh7th/cmp-path",
           after = "nvim-cmp",
+          opt = true,
         },
         {
           "jose-elias-alvarez/minsnip.nvim",
           module = "minsnip",
           after = "nvim-cmp",
+          opt = true,
           config = function ()
             require "plugins.nv-minsnip"
           end
+        },
+        {
+          "windwp/nvim-autopairs",
+          opt = true,
+          after = "nvim-cmp",
+          config = function ()
+            require "plugins.nv-autopairs"
+          end,
         },
       },
     }

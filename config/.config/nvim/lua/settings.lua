@@ -27,7 +27,6 @@ opt.errorbells      = false                                                    -
 opt.backup          = false                                                    --- Creates a backup file
 opt.writebackup     = false                                                    --- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.hlsearch        = false
-opt.timeoutlen      = 400                                                      --- Faster completion
 opt.updatetime      = 250
 opt.foldlevelstart  = 4
 opt.scrolloff       = 4                                                        --- Always keep space when scrolling to bottom/top edge
@@ -36,7 +35,7 @@ opt.cmdheight       = 1    				                                             --- 
 opt.conceallevel    = 0                                                        --- so that `` is visible in markdown files
 opt.foldcolumn      = "0"
 opt.foldmethod      = "expr"
-opt.undodir         = PATH .. ".undo"                                   --- Dir for undos
+opt.undodir         = vim.fn.stdpath('config') .. '/undo'                                   --- Dir for undos
 opt.completeopt     = {"menu","menuone", "noselect"}                                  --- Recommended by nvim-compe
 opt.wildignore      = {"**/node_modules/**", "**/.idea/**", "**/.git/**"}      --- Don't search inside Node.js modules (works for gutentag)
 opt.clipboard       = {"unnamed", "unnamedplus"}                               --- Copy-paste between vim and everything else
@@ -53,10 +52,6 @@ opt.signcolumn      = "yes"                                                    -
 --- TABS ---
 opt.expandtab       = true
 opt.autoindent      = true                                                     --- Good auto indent
-
---- LEADER KEY ---
-vim.g.mapleader = " "
-vim.b.mapleader = " "
 
 --- DISABLE BUILT-IN PLUGINS ---
 local disabled_built_ins = {

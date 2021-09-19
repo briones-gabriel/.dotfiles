@@ -5,12 +5,23 @@ if not present then
 end
 
 _G.tab_complete = function()
-  if not minsnip.jump() then
-    vim.api.nvim_input("<C-x><C-o>")
+  if not minsnip.jump() and vim.fn.pumvisible() == 1 then
+    vim.api.nvim_input("<C-n>")
+  elseif not minsnip.jump() then
+    vim.api.nvim_input("<C-S-i>")
   end
 end
 
-map("i", "<C-l>", "<cmd>lua tab_complete()<CR>", {})
+_G.s_tab_complete = function()
+  if not minsnip.jump_backwards() and vim.fn.pumvisible() == 1 then
+    vim.api.nvim_input("<C-p>")
+  elseif not minsnip.jump_backwards() then
+    vim.api.nvim_command("<")
+  end
+end
+
+map("i", "<Tab>", "<cmd>lua tab_complete()<CR>", {})
+map("i", "<S-Tab>", "<cmd>lua s_tab_complete()<CR>", {})
 
 -- helpers
 local from_ft = function(ft)

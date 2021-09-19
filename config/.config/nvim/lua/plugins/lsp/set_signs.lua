@@ -1,10 +1,9 @@
 return function ()
   local lsp = vim.lsp
-  vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
-  vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+  local handlers = lsp.handlers
 
   --- ERROR SYMBOL ---
-  lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+  handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = {
         prefix = "",
@@ -15,14 +14,15 @@ return function ()
       update_in_insert = true,
     }
   )
-  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = borders})
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = borders})
+
+  handlers["textDocument/hover"] = lsp.with(handlers.hover, {border = borders})
+  handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {border = borders})
 
   --- SIGN DEFINITION ---
-  local sign_def = function (sign, icon) fn.sign_define(sign, {text = icon}) end
+  local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
-  sign_def("LspDiagnosticsSignError", "")
-  sign_def("LspDiagnosticsSignWarning", "")
-  sign_def("LspDiagnosticsSignInformation", "")
-  sign_def("LspDiagnosticsSignHint", "")
+  for type, icon in pairs(signs) do
+    local hl = "LspDiagnosticsSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  end
 end

@@ -9,8 +9,8 @@ return function(_, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_map("n",    "K",            "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_map("n",    "<C-k>",        "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  buf_map("n",    "K",            ":lua vim.lsp.buf.hover()<CR>", opts)
+  buf_map("n",    "<C-k>",        ":lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_map("n",    "fd",           ":lua vim.lsp.buf.definition()<CR>", opts)
   buf_map("n",    "fr",           ":lua vim.lsp.buf.references()<CR>", opts)
   buf_map("n",    "gn",           ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)

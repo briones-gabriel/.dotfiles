@@ -3,8 +3,8 @@ if not present then
   return
 end
 
-local minsnip = require "minsnip"
-local cmp = require "cmp"
+local minsnip = require("minsnip")
+local cmp = require("cmp")
 local icons = {
   Class       = "   (Class)",
   Color       = "   (Color)",
@@ -29,16 +29,16 @@ local icons = {
   Variable    = "  (Variable)",
 }
 
+
+
 cmp.setup {
   mapping = {
-    ["<Tab>"] = cmp.mapping.select_next_item(),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
+    ["<C-P>"] = cmp.mapping.select_prev_item(),
+    ["<C-N>"] = cmp.mapping.select_next_item(),
+    ["<C-D>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-F>"] = cmp.mapping.scroll_docs(4),
+    ["<C-SPACE>"] = cmp.mapping.complete(),
+    ["<C-E>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm({select = true}),
   },
 
@@ -70,9 +70,9 @@ cmp.setup {
   },
 
   sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp"   },
     -- { name = "minsnip"  },
-    { name = "path"     },
+    { name = "path"       },
     --{ name = "buffer"   },
   },
 }
