@@ -30,6 +30,7 @@ nest.applyKeymaps {
   {
     ";", {
       {"f", ":Telescope find_files<cr>"},
+      {"a", ":Telescope lsp_range_code_actions<cr>", mode = "nv"},
       {"s", ":G<cr>"},
       {"c", ":G commit<cr>"},
       {"t", ":lua require('toolwindow').open_window('term', nil)<cr>"},

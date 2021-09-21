@@ -15,7 +15,7 @@ return function(_, bufnr)
   buf_map("n",    "fr",           ":lua vim.lsp.buf.references()<CR>", opts)
   buf_map("n",    "gn",           ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   buf_map("n",    "<Leader>e",    ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  buf_map("n",    ";a",           ":lua vim.lsp.buf.code_action()<CR>", opts)
+  -- buf_map("n",    ";a",           ":lua vim.lsp.buf.code_action()<CR>", opts)
   buf_map("n",    ";r",           ":lua vim.lsp.buf.rename()<CR>", opts)
   buf_map("n",    "<Leader>f",    ":lua vim.lsp.buf.formatting()<CR>", opts)
 end

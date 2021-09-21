@@ -30,6 +30,8 @@ telescope.setup {
     find_files = common_picker,
     live_grep = common_picker,
     git_branches = common_picker,
+    lsp_code_actions = common_picker,
+    lsp_range_code_actions = common_picker,
   },
   defaults = {
     prompt_prefix               = " ",
