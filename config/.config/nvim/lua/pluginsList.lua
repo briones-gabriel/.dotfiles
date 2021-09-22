@@ -97,8 +97,8 @@ return packer.startup(
       event = "BufRead",
       config = function ()
         require("focus").setup({
-          excluded_filetypes = { "toggleterm" },
-          excluded_buftypes = { "help", "prompt", "nofile" },
+          excluded_filetypes = { "toggleterm", "fugitive" },
+          excluded_buftypes = { "help", "prompt", "nofile", "nowrite" },
           compatible_filetrees = { "nvimtree" },
           treewidth = 30,
           signcolumn = false,
