@@ -6,52 +6,54 @@ vim.cmd([[
 ]])
 
 --- GENERAL ---
-opt.number          = true                                                     --- Shows current line number
-opt.relativenumber  = true                                                     --- Enables relative number
-opt.cursorline      = true                                                     --- Highlight of current line
-opt.hidden          = true                                                     --- Required to keep multiple buffers open multiple buffers
-opt.splitright      = true                                                     --- Vertical splits will automatically be to the right
-opt.smartcase       = true                                                     --- Uses case in search
-opt.smarttab        = true                                                     --- Makes tabbing smarter will realize you have 2 vs 4
-opt.smartindent     = true                                                     --- Makes indenting smart
-opt.undofile        = true                                                     --- Sets undo to file
-opt.incsearch       = true                                                     --- Start searching before pressing enter
-opt.lazyredraw      = true                                                     --- Makes macros faster & prevent errors in complicated mappings
-opt.ignorecase      = true                                                     --- Ignore case in search patterns
-opt.splitbelow      = true                                                     --- force all horizontal splits to go below current window
-opt.wrap            = false                                                    --- Display long lines as just one line
-opt.backup          = false                                                    --- Recommended
-opt.swapfile        = false                                                    --- Recommended
-opt.showmode        = false                                                    --- Don't show things like -- INSERT -- anymore
-opt.errorbells      = false                                                    --- Disables sound effect for errors
-opt.backup          = false                                                    --- Creates a backup file
-opt.writebackup     = false                                                    --- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+opt.number          = true
+opt.relativenumber  = true
+opt.cursorline      = true
+opt.hidden          = true
+opt.splitright      = true
+opt.smartcase       = true
+opt.smarttab        = true
+opt.smartindent     = true
+opt.undofile        = true
+opt.incsearch       = true
+opt.lazyredraw      = true
+opt.ignorecase      = true
+opt.splitbelow      = true
+opt.wrap            = false
+opt.backup          = false
+opt.swapfile        = false
+opt.showmode        = false
+opt.errorbells      = false
+opt.backup          = false
+opt.writebackup     = false
 opt.hlsearch        = false
 opt.updatetime      = 250
-opt.foldlevelstart  = 4
-opt.scrolloff       = 4                                                        --- Always keep space when scrolling to bottom/top edge
-opt.sidescrolloff   = 4                                                        --- Lines to scroll horizontally
-opt.cmdheight       = 1    				                                             --- Give more space for displaying messages
-opt.conceallevel    = 0                                                        --- so that `` is visible in markdown files
-opt.foldcolumn      = "0"
-opt.foldmethod      = "expr"
-opt.undodir         = vim.fn.stdpath('config') .. '/undo'                                   --- Dir for undos
-opt.completeopt     = {"menu","menuone", "noselect"}                                  --- Recommended by nvim-compe
-opt.wildignore      = {"**/node_modules/**", "**/.idea/**", "**/.git/**"}      --- Don't search inside Node.js modules (works for gutentag)
-opt.clipboard       = {"unnamed", "unnamedplus"}                               --- Copy-paste between vim and everything else
-opt.backspace       = {"indent", "eol", "start"}                               --- Making sure backspace works
-opt.fillchars       = {eob = " "}                                              --- Hides unnecessary characters
+opt.scrolloff       = 4
+opt.sidescrolloff   = 4
+opt.cmdheight       = 1
+opt.conceallevel    = 0
+opt.undodir         = vim.fn.stdpath('config') .. '/undo'
+opt.completeopt     = {"menu","menuone", "noselect"}
+opt.wildignore      = {"**/node_modules/**", "**/.idea/**", "**/.git/**"}
+opt.clipboard       = {"unnamed", "unnamedplus"}
+opt.backspace       = {"indent", "eol", "start"}
+opt.fillchars       = {eob = " "}
 opt.shortmess:append("sIc")
 opt.shell           = "/bin/bash"
 opt.guicursor       = "i:block"
-opt.fileencoding    = "utf-8"                                                  --- The enconding written to a file
-opt.encoding        = "utf-8"                                                  --- The encoding displayed
-opt.colorcolumn     = "120"                                                    --- Sets the color column distance
-opt.signcolumn      = "yes"                                                    --- Always show the sign column, otherwise it would shift the text each time
+opt.fileencoding    = "utf-8"
+opt.encoding        = "utf-8"
+opt.colorcolumn     = "120"
+opt.signcolumn      = "yes"
+vim.wo.foldmethod   = "expr"
+vim.wo.fillchars    = "fold:\\"
+vim.wo.foldnestmax  = 3
+vim.wo.foldminlines = 1
+vim.o.foldtext      = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
 --- TABS ---
 opt.expandtab       = true
-opt.autoindent      = true                                                     --- Good auto indent
+opt.autoindent      = true
 
 --- DISABLE BUILT-IN PLUGINS ---
 local disabled_built_ins = {
