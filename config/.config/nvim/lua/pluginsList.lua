@@ -93,23 +93,6 @@ return packer.startup(
     }
 
     use {
-      "beauwilliams/focus.nvim",
-      event = "BufRead",
-      config = function ()
-        require("focus").setup({
-          excluded_filetypes = { "toggleterm", "fugitive" },
-          excluded_buftypes = { "help", "prompt", "nofile", "nowrite" },
-          compatible_filetrees = { "nvimtree" },
-          treewidth = 30,
-          signcolumn = false,
-          number = false,
-          relativenumber = false,
-          cursorline = false,
-        })
-      end
-    }
-
-    use {
       "sindrets/diffview.nvim",
       cmd = "DiffviewOpen",
       config = function ()
