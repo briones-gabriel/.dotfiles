@@ -10,6 +10,7 @@ nest.applyKeymaps {
       {"q", ":q<cr>"},
       {"/", ":CommentToggle<cr>", mode = "nv"},
       {"t", ":NvimTreeToggle<cr>"},
+      {"o", ":SymbolsOutline<cr>"},
     },
   },
   {
