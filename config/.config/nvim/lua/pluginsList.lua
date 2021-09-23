@@ -104,6 +104,14 @@ return packer.startup(
       "LionC/nest.nvim",
     }
 
+    use {
+      "simrat39/symbols-outline.nvim",
+      cmd = "SymbolsOutline",
+      config = function ()
+        require "plugins.nv-outline"
+      end
+    }
+
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
