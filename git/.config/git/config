@@ -1,0 +1,13 @@
+[user]
+    email = dossantosgabrielb@gmail.com
+    name = briones-gabriel
+[alias]
+    a  = add
+    b  = branch
+    c  = commit
+    s  = status
+    co = checkout
+    p = pull
+    P = push
+[core]
+    editor = nvim
