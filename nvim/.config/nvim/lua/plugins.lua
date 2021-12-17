@@ -44,7 +44,8 @@ return require("packer").startup(
     }
 
     use {
-      "dstein64/nvim-scrollview"
+      "wfxr/minimap.vim",
+      after = "nvim-treesitter"
     }
 
     use {

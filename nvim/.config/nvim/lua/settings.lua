@@ -52,6 +52,11 @@ opt.autoindent      = true
 -- filetype
 vim.g.did_load_filetypes = 1
 
+-- minmap
+vim.g.minimap_width = 5
+vim.g.minimap_auto_start = 0
+vim.g.minimap_auto_start_win_enter = 0
+
 --- disable built-in plugins
 local disabled_built_ins = {
   "netrw",
