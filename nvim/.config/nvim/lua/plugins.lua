@@ -49,6 +49,11 @@ return require("packer").startup(
     }
 
     use {
+      "AndrewRadev/tagalong.vim",
+      after = "nvim-lsp-installer"
+    }
+
+    use {
       "vuki656/package-info.nvim",
       requires = "MunifTanjim/nui.nvim",
       ft = "json",
