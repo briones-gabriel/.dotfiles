@@ -144,12 +144,14 @@ return require("packer").startup(
     use {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
+      commit = "80cdb00b221f69348afc4fb4b701f51eb8dd3120",
       config = function ()
         require "plugins.nv_telescope"
       end,
       requires = {
         {
           "nvim-lua/plenary.nvim",
+          commit = "b5fd5cab51f8e30d669295ec361a48b13c245eb5",
         },
         {
           "nvim-lua/popup.nvim",

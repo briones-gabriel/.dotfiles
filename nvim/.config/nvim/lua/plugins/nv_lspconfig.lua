@@ -47,7 +47,9 @@ lsp_installer.on_server_ready(
 )
 
 -- Null-ls config
-null_ls.config({
+null_ls.setup({
+  debounce = 500,
+  on_attach = on_attach,
   sources = {
     null_ls.builtins.formatting.prettier.with({
       extra_args = function(params)
@@ -61,11 +63,6 @@ null_ls.config({
       prefer_local = "node_modules/.bin",
     }),
   },
-})
-
-require("lspconfig")["null-ls"].setup({
-  on_attach = on_attach,
-  debug = true,
 })
 
 -- Set LSP UI
