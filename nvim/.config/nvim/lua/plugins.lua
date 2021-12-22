@@ -15,6 +15,10 @@ return require("packer").startup(
       "EdenEast/nightfox.nvim"
     }
 
+    use {
+      "rebelot/kanagawa.nvim"
+    }
+
     --- GIT ---
     use {
       "lewis6991/gitsigns.nvim",
