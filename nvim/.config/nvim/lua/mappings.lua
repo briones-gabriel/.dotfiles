@@ -48,7 +48,6 @@ nest.applyKeymaps {
   },
   {
     ";", {
-      {"m", ":MinimapToggle<cr>"},
       {"f", ":Telescope find_files<cr>"},
       {"w", ":Telescope live_grep<cr>"},
       {"s", ":G<cr>"},

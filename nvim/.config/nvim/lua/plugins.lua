@@ -44,11 +44,6 @@ return require("packer").startup(
     }
 
     use {
-      "wfxr/minimap.vim",
-      after = "nvim-treesitter"
-    }
-
-    use {
       "AndrewRadev/tagalong.vim",
       after = "nvim-lsp-installer"
     }
