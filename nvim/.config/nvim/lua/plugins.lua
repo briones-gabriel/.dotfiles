@@ -121,6 +121,7 @@ return require("packer").startup(
     --- TREESITTER ---
     use {
       "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
       event = "VimEnter",
       branch = "0.5-compat",
       config = function ()
