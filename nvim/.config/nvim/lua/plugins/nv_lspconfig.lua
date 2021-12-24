@@ -3,6 +3,22 @@ local lsp_installer = require("nvim-lsp-installer")
 local null_ls = require("null-ls")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local border = {
+  {"┌", "FloatBorder"},
+  {"─", "FloatBorder"},
+  {"┐", "FloatBorder"},
+  {"│", "FloatBorder"},
+  {"┘", "FloatBorder"},
+  {"─", "FloatBorder"},
+  {"└", "FloatBorder"},
+  {"│", "FloatBorder"},
+}
+
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
+
 local on_attach = function (client, bufnr)
   local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_opt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -20,30 +36,30 @@ local on_attach = function (client, bufnr)
   buf_map("n",    "K",            ":lua vim.lsp.buf.hover()<CR>", opts)
   buf_map("n",    "gd",           ":lua vim.lsp.buf.definition()<CR>", opts)
   buf_map("n",    "gr",           ":lua vim.lsp.buf.references()<CR>", opts)
-  buf_map("n",    "gn",           ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  buf_map("n",    "gp",           ":lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  buf_map("n",    "gn",           ":lua vim.diagnostic.goto_next()<CR>", opts)
+  buf_map("n",    "gp",           ":lua vim.diagnostic.goto_prev()<CR>", opts)
   -- buf_map("n",    ";a",           ":lua vim.lsp.buf.code_action()<CR>", opts)
   buf_map("n",    ";r",           ":lua vim.lsp.buf.rename()<CR>", opts)
-  buf_map("n",    "<Leader>e",    ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+  buf_map("n",    "<Leader>e",    ":lua vim.diagnostic.open_float()<CR>", opts)
   buf_map("n",    "<Leader>f",    ":lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 lsp_installer.on_server_ready(
-  function(server)
-    local opts = {}
+function(server)
+  local opts = {}
 
-    if (pcall(require, "lsp/" .. server.name)) then
-      opts = require("lsp/" .. server.name)
-    end
-
-    opts.on_attach = on_attach
-    opts.flags = {debounce_text_changes = 500}
-
-    opts.capabilities = capabilities
-
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
+  if (pcall(require, "lsp/" .. server.name)) then
+    opts = require("lsp/" .. server.name)
   end
+
+  opts.on_attach = on_attach
+  opts.handlers = handlers
+  opts.capabilities = capabilities
+  opts.flags = {debounce_text_changes = 500}
+
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end
 )
 
 -- Null-ls config
@@ -65,35 +81,34 @@ null_ls.setup({
   },
 })
 
--- Set LSP UI
-local lsp = vim.lsp
-local handlers = lsp.handlers
-local borders = {
-  {"┌", "FloatBorder"},
-  {"─", "FloatBorder"},
-  {"┐", "FloatBorder"},
-  {"│", "FloatBorder"},
-  {"┘", "FloatBorder"},
-  {"─", "FloatBorder"},
-  {"└", "FloatBorder"},
-  {"│", "FloatBorder"},
-}
+-- Diagnostics config
+vim.diagnostic.config({
+  virtual_text = {
+    source = "if_many",
+  },
+  float = {
+    source = "if_many",
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
 
-handlers["textDocument/hover"] = lsp.with(handlers.hover, {border = borders})
-handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {border = borders})
-handlers["textDocument/publishDiagnostics"] = lsp.with(
-  lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-      prefix = "",
-      spacing = 0,
-    },
-    signs = false,
-    underline = true,
-    update_in_insert = true,
-  }
-)
+vim.cmd [[
+  highlight DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+  highlight DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+  highlight DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
 
-for type, icon in pairs({Error = " ", Warning = " ", Hint = " ", Information = " "}) do
-  local hl = "LspDiagnosticsSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
+
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
