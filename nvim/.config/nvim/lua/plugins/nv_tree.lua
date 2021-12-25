@@ -17,12 +17,12 @@ vim.g.nvim_tree_show_icons = {
 vim.g.nvim_tree_icons = {
   default = "",
   folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
   },
 }
 

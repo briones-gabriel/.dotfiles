@@ -15,7 +15,7 @@ telescope.setup {
     },
   },
   defaults = {
-    prompt_prefix = "   ",
+    prompt_prefix = "   ",
     selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -32,7 +32,7 @@ telescope.setup {
       },
     },
     file_ignore_patterns = { "node_modules/*.*", ".idea/*.*", ".git/.*", "static/*.*", "target/*.*" },
-    color_devicons = false,
+    color_devicons = true,
     use_less = true,
   },
   extensions = {

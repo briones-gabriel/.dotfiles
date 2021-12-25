@@ -11,10 +11,10 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-  dashboard.button( "n", "  New file" ,  ":ene <BAR> startinsert <cr>"),
-  dashboard.button( "t", "  Project files" , ":NvimTreeToggle<cr>"),
-  dashboard.button( "f", "  Find files", ":Telescope find_files<cr>"),
-  dashboard.button( "q", "  Quit Neovim" , ":qa<cr>"),
+  dashboard.button( "n", "New file" ,  ":ene <BAR> startinsert <cr>"),
+  dashboard.button( "t", "Project files" , ":NvimTreeToggle<cr>"),
+  dashboard.button( "f", "Find files", ":Telescope find_files<cr>"),
+  dashboard.button( "q", "Quit Neovim" , ":qa<cr>"),
 }
 
 alpha.setup(dashboard.opts)

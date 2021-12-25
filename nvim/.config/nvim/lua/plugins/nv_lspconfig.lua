@@ -23,7 +23,7 @@ local on_attach = function (client, bufnr)
   local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_opt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  if client.name == "tsserver" then
+  if client.name == "tsserver" or client.name == "dartls" then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end
@@ -42,6 +42,10 @@ local on_attach = function (client, bufnr)
   buf_map("n",    ";r",           ":lua vim.lsp.buf.rename()<CR>", opts)
   buf_map("n",    "<Leader>e",    ":lua vim.diagnostic.open_float()<CR>", opts)
   buf_map("n",    "<Leader>f",    ":lua vim.lsp.buf.formatting()<CR>", opts)
+
+  -- Lsp fast action (flutter)
+  buf_map("n", "<leader>a", "<cmd>lua require('lsp-fastaction').code_action()<CR>", opts)
+  buf_map("v", "<leader>a", "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", opts)
 end
 
 lsp_installer.on_server_ready(
@@ -58,7 +62,6 @@ function(server)
   opts.flags = {debounce_text_changes = 500}
 
   server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
 end
 )
 
