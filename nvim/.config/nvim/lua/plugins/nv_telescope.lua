@@ -31,7 +31,7 @@ telescope.setup {
         ["q"] = actions.close
       },
     },
-    file_ignore_patterns = { "node_modules/*.*", ".idea/*.*", ".git/.*", "static/*.*", "target/*.*" },
+    file_ignore_patterns = { "node_modules/*.*", ".idea/*.*", ".git/.*", "static/*.*", "target/*.*", "android/*.*", "ios/*.*" },
     color_devicons = true,
     use_less = true,
   },

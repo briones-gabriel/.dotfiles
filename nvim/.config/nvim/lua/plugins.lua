@@ -104,6 +104,9 @@ function(use)
 
   use {
     "kyazdani42/nvim-web-devicons",
+    config = function ()
+      require "plugins.nv_devicons"
+    end
   }
 
   use {
