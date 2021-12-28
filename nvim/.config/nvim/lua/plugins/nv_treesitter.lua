@@ -10,7 +10,7 @@ require("nvim-treesitter.configs").setup {
   },
   highlight = {
     enable  = true,
-    use_languagetree = true,
+    disable = { "html" }
   },
   refactor = {
     highlight_definitions = {

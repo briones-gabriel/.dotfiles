@@ -15,9 +15,9 @@ function(use)
     "EdenEast/nightfox.nvim"
   }
 
-  use {
-    "rebelot/kanagawa.nvim"
-  }
+  -- use {
+  --   "rebelot/kanagawa.nvim"
+  -- }
 
   --- GIT ---
   use {

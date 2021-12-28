@@ -60,6 +60,12 @@ require("nvim-web-devicons").setup {
       cterm_color = "185",
       name = "Favicon",
     },
+    java = {
+      icon = "",
+      color = "#cc3e44",
+      cterm_color = "167",
+      name = "Java",
+    },
     default_icon = {
       icon = "",
       color = "#6d8086",
