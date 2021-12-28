@@ -216,11 +216,6 @@ function(use)
     after = "nvim-snippy",
   }
 
-  use {
-    "bonsaiben/bootstrap-snippets",
-    after = "nvim-snippy",
-  }
-
   --- LSP ---
   use {
     "williamboman/nvim-lsp-installer",
