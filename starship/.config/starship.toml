@@ -1,4 +1,6 @@
 # Prompt format
+add_newline = false
+command_timeout = 1000
 format = """
 $directory\
 $git_branch\
@@ -6,10 +8,8 @@ $git_status\
 $character
 """
 
-# Inserts a blank line between shell prompts
-add_newline = false
-# Waits for commands before executing
-command_timeout = 1000
+[directory]
+style = "bold white"
 
 # Prompt config
 [character]
