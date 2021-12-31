@@ -13,24 +13,24 @@ command_timeout = 1000
 
 # Prompt config
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
-vicmd_symbol = "[V](bold green)"
+# success_symbol = "[➜](bold green)"
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
 
 [git_branch]
 style = "#808080"
-format = "[ $branch]($style) "
+format = "[$branch]($style) "
 
 [git_status]
-ahead = "⇡${count} "
-behind = "⇣${count} "
-diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 stashed = ""
-untracked = "? "
-staged = "+ "
-modified = "* "
-conflicted = "!= "
-renamed = " "
-deleted = " "
+untracked = "?"
+staged = "+"
+modified = "*"
+conflicted = "!="
+renamed = ""
+deleted = ""
 style = "bold yellow"
-format = "([$all_status$ahead_behind]($style))"
+# format = "([$all_status$ahead_behind]($style))"
