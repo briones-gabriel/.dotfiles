@@ -23,7 +23,7 @@ local on_attach = function (client, bufnr)
   local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_opt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  if client.name == "tsserver" or client.name == "dartls" then
+  if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end

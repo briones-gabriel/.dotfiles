@@ -248,7 +248,14 @@ function(use)
     "akinsho/flutter-tools.nvim",
     after = "nvim-lsp-installer",
     config = function ()
-      require("flutter-tools").setup{}
+      require("flutter-tools").setup{
+        lsp = {
+          on_attach = function (client, _)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+          end
+        }
+      }
     end
   }
 
