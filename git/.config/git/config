@@ -8,6 +8,7 @@
     s  = status
     co = checkout
     p = pull
-    P = push
+    ps = push
+    f = fetch
 [core]
     editor = nvim

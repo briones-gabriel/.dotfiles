@@ -33,7 +33,9 @@ nmap <Leader>w   :w<CR>
 nmap <Leader>q   :q<CR>
 nmap <Leader>c   :q<CR>
 :map <leader>t   :NERDTreeFind<CR>
-:map <leader>fm  <Action>(ReformatCode)
+:map <leader>r   <Action>(RenameElement)
+:map <leader>s   <Action>(Stop)
+:map <leader>f  <Action>(ReformatCode)
 :map <leader>e   <Action>(ShowErrorDescription)
 :map <leader>k   <Action>(ToggleFullScreen)
 :map <leader>/   <Action>(CommentByLineComment)
@@ -42,10 +44,8 @@ nmap <Leader>c   :q<CR>
 :map <C-h>       <Action>(PreviousTab)
 
 :map ;d          <Action>(Debug)
-:map ;s          <Action>(Stop)
 :map ;r          <Action>(Run)
 :map ;t          <Action>(ActivateTerminalToolWindow)
-:map ;r          <Action>(RenameElement)
 
 :map gu          <Action>(FindUsages)
 :map gc          <Action>(GotoClass)
