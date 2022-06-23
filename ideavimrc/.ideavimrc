@@ -35,13 +35,17 @@ nmap <Leader>c   :q<CR>
 :map <leader>t   :NERDTreeFind<CR>
 :map <leader>r   <Action>(RenameElement)
 :map <leader>s   <Action>(Stop)
-:map <leader>f  <Action>(ReformatCode)
+:map <leader>f   <Action>(ReformatWithPrettierAction)
 :map <leader>e   <Action>(ShowErrorDescription)
 :map <leader>k   <Action>(ToggleFullScreen)
 :map <leader>/   <Action>(CommentByLineComment)
 
 :map <C-l>       <Action>(NextTab)
 :map <C-h>       <Action>(PreviousTab)
+
+:map <S-l>       <Action>(SplitVertically)
+:map <S-j>       <Action>(SplitHorizontally)
+:map <S-s>       <Action>(Switcher)
 
 :map ;d          <Action>(Debug)
 :map ;r          <Action>(Run)
