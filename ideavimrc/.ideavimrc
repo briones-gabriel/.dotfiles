@@ -44,7 +44,6 @@ nmap <Leader>c   :q<CR>
 :map <C-h>       <Action>(PreviousTab)
 
 :map <S-l>       <Action>(SplitVertically)
-:map <S-j>       <Action>(SplitHorizontally)
 :map <S-s>       <Action>(Switcher)
 
 :map ;d          <Action>(Debug)
