@@ -40,7 +40,7 @@ return packer.startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     config = function()
-      require 'setup.plugins._nvim_cmp'
+      require('setup.plugins._nvim_cmp')
     end,
     requires = {
       {
@@ -86,13 +86,13 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require 'setup.plugins._treesitter'
+      require('setup.plugins._treesitter')
     end,
     requires = {
       {
         'windwp/nvim-autopairs',
         config = function()
-          require("nvim-autopairs").setup {}
+          require('nvim-autopairs').setup {}
         end,
       },
       {
@@ -108,12 +108,24 @@ return packer.startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require("indent_blankline").setup {
+      require('indent_blankline').setup {
         show_current_context = true,
       }
     end,
   }
 
+  -- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('setup.plugins._gitsigns')
+    end,
+  }
+
+  use {
+    "tpope/vim-fugitive",
+    cmd = "G",
+  }
 
   if Packer_bootstrap then
     require('packer').sync()

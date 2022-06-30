@@ -11,6 +11,8 @@ keymap('', '<Space>', '<Nop>', opts)
 keymap('n', '<leader>w', ':w<cr>', opts)
 keymap('n', '<leader>q', ':q<cr>', opts)
 keymap('n', '<leader>t', ':Lexplore<cr>', opts)
+keymap('n', '<leader>g', ':G<cr>', opts)
+keymap('n', '<leader>c', ':G commit<cr>', opts)
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

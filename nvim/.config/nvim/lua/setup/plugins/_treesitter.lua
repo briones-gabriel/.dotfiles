@@ -1,6 +1,6 @@
-require("nvim-treesitter.configs").setup {
+require('nvim-treesitter.configs').setup {
   autotag = {
-    enable  = { "html", "vue" },
+    enable  = { 'html', 'vue' },
   },
   refactor = {
     highlight_definitions = {
