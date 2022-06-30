@@ -82,6 +82,11 @@ return packer.startup(function(use)
     },
   }
 
+  -- syntax highlight
+  use {
+    'nvim-treesitter/nvim-treesitter',
+  }
+
 
   if Packer_bootstrap then
     require('packer').sync()
