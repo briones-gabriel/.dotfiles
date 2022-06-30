@@ -1,4 +1,5 @@
-require 'setup.options'
-require 'setup.keymaps'
-require 'setup.plugins'
-require 'setup.colorscheme'
+require('setup.options')
+require('setup.keymaps')
+require('setup.plugins')
+require('setup.colorscheme')
+require('setup.statusline')
