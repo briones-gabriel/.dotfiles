@@ -104,6 +104,16 @@ return packer.startup(function(use)
     },
   }
 
+  -- indentation
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+      }
+    end,
+  }
+
 
   if Packer_bootstrap then
     require('packer').sync()
