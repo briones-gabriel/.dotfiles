@@ -85,6 +85,23 @@ return packer.startup(function(use)
   -- syntax highlight
   use {
     'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require 'setup.plugins._treesitter'
+    end,
+    requires = {
+      {
+        'windwp/nvim-autopairs',
+        config = function()
+          require("nvim-autopairs").setup {}
+        end,
+      },
+      {
+        'windwp/nvim-ts-autotag',
+      },
+      {
+        'nvim-treesitter/nvim-treesitter-refactor',
+      },
+    },
   }
 
 

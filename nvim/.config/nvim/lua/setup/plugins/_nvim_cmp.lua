@@ -10,6 +10,15 @@ if not luasnip_present then
   return
 end
 
+local autopairs_present, autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+
+if autopairs_present then
+  cmp.event:on(
+    'confirm_done',
+    autopairs.on_confirm_done()
+  )
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local has_words_before = function()
