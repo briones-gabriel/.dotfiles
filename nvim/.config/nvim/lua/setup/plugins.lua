@@ -127,6 +127,15 @@ return packer.startup(function(use)
     cmd = "G",
   }
 
+  -- file finder
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = function ()
+      require('setup.plugins._telescope')
+    end,
+    tag = '0.1.0',
+  }
+
   if Packer_bootstrap then
     require('packer').sync()
   end

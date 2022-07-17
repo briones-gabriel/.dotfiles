@@ -1,6 +1,9 @@
 local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap.set
+local netrw_keymap = function(key, map)
+  vim.cmd('nmap <buffer> ' .. key .. ' ' .. map)
+end
 
 vim.g.mapleader = " "
 
@@ -12,7 +15,7 @@ keymap('n', '<leader>w', ':w<cr>', opts)
 keymap('n', '<leader>q', ':q<cr>', opts)
 keymap('n', '<leader>t', ':Lexplore<cr>', opts)
 keymap('n', '<leader>g', ':G<cr>', opts)
-keymap('n', '<leader>c', ':G commit<cr>', opts)
+keymap('n', '<leader>f', ':Telescope find_files<cr>', opts)
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -32,3 +35,12 @@ keymap("v", ">", ">gv", opts)
 
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'netrw',
+  desc = 'Open netrw folder with o.',
+  callback = function()
+    netrw_keymap('o', '<cr>')
+    netrw_keymap('n', '%')
+  end,
+})
