@@ -64,7 +64,7 @@ local function get_separator()
 end
 
 local function get_end_of_statusline()
-  return "%l:%c "
+  return "%#Normal#%l:%c "
 end
 
 Statusline = {}
