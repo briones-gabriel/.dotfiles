@@ -39,7 +39,7 @@ local modes = {
 vim.cmd [[
   highlight Mode guibg=#95CEDA guifg=#000000 gui=bold
   highlight FileName guibg=#205057 guifg=#FFFFFF
-  highlight GitBranch guibg=#152528 guifg=#FF9F78
+  highlight GitBranch guibg=#0f1c1e guifg=#FF9F78
 ]]
 
 local function get_mode()
@@ -53,18 +53,18 @@ local function get_branch()
   if not vim.b.gitsigns_status_dict or not vim.b.gitsigns_status_dict.head then
     branch = ''
   else
-    branch = vim.b.gitsigns_status_dict.head
+    branch = "%#StatusLine# " .. vim.b.gitsigns_status_dict.head .. " "
   end
 
-  return "%#GitBranch# " .. branch .. " "
+  return branch
 end
 
 local function get_separator()
-  return "%#Normal#%=%#StatusLineExtra#"
+  return "%#StatusLine#%=%#StatusLine#%"
 end
 
 local function get_end_of_statusline()
-  return "%#Normal#%l:%c "
+  return "l:%c "
 end
 
 Statusline = {}
