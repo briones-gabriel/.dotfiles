@@ -15,7 +15,8 @@ keymap('n', '<leader>w', ':w<cr>', opts)
 keymap('n', '<leader>q', ':q<cr>', opts)
 keymap('n', '<leader>t', ':Lexplore<cr>', opts)
 keymap('n', '<leader>g', ':G<cr>', opts)
-keymap('n', '<leader>f', ':Telescope find_files<cr>', opts)
+keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+keymap('n', '<leader>fs', '<cmd>Telescope live_grep<cr>', opts)
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -41,6 +42,5 @@ vim.api.nvim_create_autocmd('FileType', {
   desc = 'Open netrw folder with o.',
   callback = function()
     netrw_keymap('o', '<cr>')
-    netrw_keymap('n', '%')
   end,
 })
