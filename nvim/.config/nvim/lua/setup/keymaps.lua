@@ -11,10 +11,10 @@ vim.g.maplocalleader = " "
 
 keymap('', '<Space>', '<Nop>', opts)
 
-keymap('n', '<leader>w', ':w<cr>', opts)
-keymap('n', '<leader>q', ':q<cr>', opts)
-keymap('n', '<leader>t', ':Lexplore<cr>', opts)
-keymap('n', '<leader>g', ':G<cr>', opts)
+keymap('n', '<leader>w', '<cmd>w<cr>', opts)
+keymap('n', '<leader>q', '<cmd>q<cr>', opts)
+keymap('n', '<leader>t', '<cmd>NvimTreeToggle<cr>', opts)
+keymap('n', '<leader>g', '<cmd>G<cr>', opts)
 keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
 keymap('n', '<leader>fs', '<cmd>Telescope live_grep<cr>', opts)
 

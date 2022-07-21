@@ -40,7 +40,7 @@ return packer.startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     config = function()
-      require('setup.plugins._nvim_cmp')
+      require('setup.plugins._nvim-cmp')
     end,
     requires = {
       {
@@ -130,10 +130,18 @@ return packer.startup(function(use)
   -- file finder
   use {
     'nvim-telescope/telescope.nvim',
-    config = function ()
+    config = function()
       require('setup.plugins._telescope')
     end,
     tag = '0.1.0',
+  }
+
+  -- file tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = function()
+      require('setup.plugins._nvim-tree')
+    end,
   }
 
   if Packer_bootstrap then
