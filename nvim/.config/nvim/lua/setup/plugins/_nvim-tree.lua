@@ -9,7 +9,6 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
-    add_trailing = true,
     indent_markers = {
       enable = true,
     },
