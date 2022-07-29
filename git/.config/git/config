@@ -1,6 +1,3 @@
-[user]
-    email = dossantosgabrielb@gmail.com
-    name = briones-gabriel
 [alias]
     a  = add
     b  = branch
@@ -12,3 +9,6 @@
     f = fetch
 [core]
     editor = nvim
+[user]
+	email = dossantosgabrielb@gmail.com
+	name = briones-gabriel
