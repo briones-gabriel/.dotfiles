@@ -19,6 +19,7 @@ keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
 keymap('n', '<leader>fs', '<cmd>Telescope live_grep<cr>', opts)
 keymap("n", "<leader>hm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 keymap("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<leader>cf", "<cmd>Neoformat<cr>", opts)
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
