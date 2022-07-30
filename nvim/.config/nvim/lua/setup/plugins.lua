@@ -144,6 +144,13 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    'ThePrimeagen/harpoon',
+    config = function()
+      require('setup.plugins._harpoon')
+    end,
+  }
+
   if Packer_bootstrap then
     require('packer').sync()
   end
