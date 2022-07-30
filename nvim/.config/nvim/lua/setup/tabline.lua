@@ -4,31 +4,14 @@ vim.cmd [[
   highlight GitBranch guibg=#152528 guifg=#FF9F78
 ]]
 
-local function filepath()
-  local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-  if fpath == "" or fpath == "." then
-    return " "
-  end
-
-  return string.format(" %%<%s/", fpath)
-end
-
-local function filename()
-  local fname = vim.fn.expand "%:t"
-  if fname == "" then
-    return ""
-  end
-  return fname .. " "
-end
-
-local function file()
-  return "%#FileName#" .. filepath() .. filename() .. "%#Normal#"
+local function project_root_dir()
+  return "%#FileName# " .. vim.fn.substitute(vim.fn.getcwd(), '^.*/', '', '') .. "/" .. " %#Normal#"
 end
 
 Tabline = {}
 
 function Tabline.active()
-  return file()
+  return project_root_dir()
 end
 
 vim.api.nvim_exec([[

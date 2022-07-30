@@ -19,7 +19,7 @@ local function set_server_keymaps(buffer)
   keymap('n', 'gr', vim.lsp.buf.references, buffer_opts)
   keymap('n', '<space>rn', vim.lsp.buf.rename, buffer_opts)
   keymap('n', '<space>ca', vim.lsp.buf.code_action, buffer_opts)
-  -- keymap('n', '<space>cf', vim.lsp.buf.formatting, buffer_opts)
+  keymap('n', '<space>lf', vim.lsp.buf.formatting, buffer_opts)
 end
 
 M.setup = function()
