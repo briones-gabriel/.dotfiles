@@ -44,7 +44,7 @@ vim.cmd [[
 
 local function get_mode()
   local current_mode = vim.api.nvim_get_mode().mode
-  return "%#Mode#" .. string.format(" %s ", modes[current_mode]):upper()
+  return "%#Mode#" .. string.format(" %s ", modes[current_mode]):upper() .. "%#StatusLine#"
 end
 
 local function get_branch()
@@ -53,18 +53,29 @@ local function get_branch()
   if not vim.b.gitsigns_status_dict or not vim.b.gitsigns_status_dict.head then
     branch = ''
   else
-    branch = "%#StatusLine# " .. vim.b.gitsigns_status_dict.head .. " "
+    branch = " " .. vim.b.gitsigns_status_dict.head .. " "
   end
 
   return branch
 end
 
 local function get_separator()
-  return "%#StatusLine#%=%#StatusLine#%"
+  return "%="
 end
 
-local function get_end_of_statusline()
-  return "l:%c "
+local function get_file()
+  local filename = vim.fn.expand("%:.")
+
+  local exceptions = {
+    ["NvimTree_1"] = true,
+    ["harpoon-menu"] = true,
+  }
+
+  if exceptions[filename] then
+    return ""
+  else
+    return " " .. filename .. " "
+  end
 end
 
 Statusline = {}
@@ -72,9 +83,9 @@ Statusline = {}
 Statusline.active = function()
   return table.concat {
     get_mode(),
-    get_branch(),
+    get_file(),
     get_separator(),
-    get_end_of_statusline(),
+    get_branch(),
   }
 end
 

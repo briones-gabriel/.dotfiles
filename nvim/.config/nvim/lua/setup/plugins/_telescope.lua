@@ -21,3 +21,9 @@ require('telescope').setup {
     },
   },
 }
+
+local is_harpoon_present, _ = pcall(require, 'harpoon')
+
+if is_harpoon_present then
+  require('telescope').load_extension('harpoon')
+end

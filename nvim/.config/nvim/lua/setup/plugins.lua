@@ -127,7 +127,7 @@ return packer.startup(function(use)
     cmd = "G",
   }
 
-  -- file finder
+  -- file navigation
   use {
     'nvim-telescope/telescope.nvim',
     config = function()
@@ -136,12 +136,23 @@ return packer.startup(function(use)
     tag = '0.1.0',
   }
 
-  -- file tree
   use {
     'kyazdani42/nvim-tree.lua',
     config = function()
       require('setup.plugins._nvim-tree')
     end,
+  }
+
+  use {
+    'ThePrimeagen/harpoon',
+    config = function()
+      require('setup.plugins._harpoon')
+    end,
+  }
+
+  -- file formatting
+  use {
+    'sbdchd/neoformat',
   }
 
   if Packer_bootstrap then
