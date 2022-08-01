@@ -19,8 +19,5 @@ require('telescope').setup {
     find_files = {
       previewer = false
     },
-    live_grep = {
-      previewer = false
-    }
   },
 }
