@@ -9,6 +9,3 @@
     f = fetch
 [core]
     editor = nvim
-[user]
-	email = dossantosgabrielb@gmail.com
-	name = briones-gabriel
