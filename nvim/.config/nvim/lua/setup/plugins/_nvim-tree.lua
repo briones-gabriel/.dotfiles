@@ -3,6 +3,7 @@ require("nvim-tree").setup({
   disable_netrw = true,
   filters = {
     dotfiles = true,
+    custom = { "^.git$" }
   },
   view = {
     adaptive_size = true,
@@ -10,6 +11,7 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
+    root_folder_modifier = ":t",
     indent_markers = {
       enable = true,
     },
