@@ -155,6 +155,13 @@ return packer.startup(function(use)
     'sbdchd/neoformat',
   }
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
   if Packer_bootstrap then
     require('packer').sync()
   end
